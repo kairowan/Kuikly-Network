@@ -6,6 +6,7 @@
 
 [![Build](https://github.com/kairowan/Kuikly-Network/actions/workflows/network-library.yml/badge.svg)](https://github.com/kairowan/Kuikly-Network/actions/workflows/network-library.yml)
 [![Docs](https://github.com/kairowan/Kuikly-Network/actions/workflows/docs.yml/badge.svg)](https://kairowan.github.io/Kuikly-Network/)
+[![JitPack](https://jitpack.io/v/kairowan/Kuikly-Network.svg)](https://jitpack.io/#kairowan/Kuikly-Network)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.21-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache--2.0-2f855a.svg)](NETWORK-LICENSE)
 
@@ -48,26 +49,38 @@ Android、iOS 和 Kuikly；Android 由 Retrofit/OkHttp 传输，iOS 使用原生
 
 ## 安装
 
-当前工程版本默认为 `0.1.0-SNAPSHOT`。正式 Maven 仓库发布前，可以先发布到本机：
-
-```bash
-./gradlew publishToMavenLocal -PnetworkVersion=0.1.0
-```
-
-消费端启用 `mavenLocal()` 后按需添加模块：
+稳定版本通过 JitPack 发布。先在消费工程中加入仓库：
 
 ```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://jitpack.io")
+            content { includeGroup("com.github.kairowan.Kuikly-Network") }
+        }
+    }
+}
+```
+
+按需添加模块：
+
+```kotlin
+val networkVersion = "v0.1.0"
+
 commonMain.dependencies {
-    implementation(platform("com.catchzoon.network:network-bom:0.1.0"))
-    implementation("com.catchzoon.network:network-core")
+    implementation(platform("com.github.kairowan.Kuikly-Network:network-bom:$networkVersion"))
+    implementation("com.github.kairowan.Kuikly-Network:network-core:$networkVersion")
 }
 
 dependencies {
-    add("kspAndroid", "com.catchzoon.network:network-ksp:0.1.0")
-    add("kspIosArm64", "com.catchzoon.network:network-ksp:0.1.0")
-    add("kspIosSimulatorArm64", "com.catchzoon.network:network-ksp:0.1.0")
+    add("kspAndroid", "com.github.kairowan.Kuikly-Network:network-ksp:$networkVersion")
 }
 ```
+
+JitPack 构建 Linux/Android 产物；GitHub Release 的 Maven 压缩包额外包含 macOS 构建的 iOS KLib。
+HarmonyOS 使用同一 Release 附带的 `network-ohos-0.1.0.har`。
 
 ## 三步发起请求
 

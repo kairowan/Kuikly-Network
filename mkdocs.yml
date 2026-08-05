@@ -7,6 +7,11 @@ repo_name: kairowan/Kuikly-Network
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Catchzoon Mobile Team
 
+exclude_docs: |
+  network-migration.md
+  network-release.md
+  harmony-har-release.md
+
 theme:
   name: material
   language: zh
@@ -126,6 +131,3 @@ nav:
       - 测试: guides/testing.md
       - Demo 运行: guides/demo.md
       - 常见问题: guides/faq.md
-      - 迁移指南: network-migration.md
-      - 发布 Maven: network-release.md
-      - 发布 Harmony HAR: harmony-har-release.md

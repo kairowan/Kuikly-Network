@@ -11,6 +11,7 @@ on:
       - "scripts/*network*"
       - "scripts/*harmony*"
       - "build.gradle.kts"
+      - "jitpack.yml"
       - "settings.gradle.kts"
       - "gradle/**"
       - ".github/workflows/network-library.yml"
@@ -25,6 +26,7 @@ on:
       - "scripts/*network*"
       - "scripts/*harmony*"
       - "build.gradle.kts"
+      - "jitpack.yml"
       - "settings.gradle.kts"
       - "gradle/**"
 
@@ -63,6 +65,8 @@ jobs:
             :network-bom:generatePomFileForBomPublication
       - name: 架构边界
         run: ./scripts/check_network_architecture.sh
+      - name: JitPack 发布链路
+        run: ./gradlew publishJitPackToMavenLocal -PnetworkVersion=ci-check
 
   ios:
     runs-on: macos-14

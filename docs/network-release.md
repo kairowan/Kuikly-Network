@@ -22,6 +22,17 @@
 
 ## 发布配置
 
+### JitPack
+
+Tag 发布使用根目录 `jitpack.yml`，JitPack 会执行：
+
+```bash
+./gradlew publishJitPackToMavenLocal -PnetworkVersion="$VERSION"
+```
+
+该任务发布 KMP 根元数据、Android AAR、KSP、BOM 和可选模块。JitPack 构建机是 Linux，不能生成
+Apple KLib；完整 Maven Release 包必须在 macOS 执行 `publishToMavenLocal` 后打包。
+
 | 环境变量/属性 | 用途 |
 | --- | --- |
 | `NETWORK_VERSION` / `-PnetworkVersion` | 发布版本 |
@@ -41,4 +52,3 @@
 3. 鸿蒙适配器在具备 DevEco SDK 的构建机通过。
 4. POM、sources、KMP metadata、BOM 与签名文件齐全。
 5. 使用一个空白示例工程从目标仓库解析并发起脚本请求。
-

@@ -36,14 +36,14 @@ subprojects {
                 pom {
                     name.set("Kuikly Network ${project.name}")
                     description.set("面向 KMP、Kuikly、Android、iOS 与 HarmonyOS 的可组合网络基础设施")
-                    url.set("https://github.com/catchzoon/kuikly-network")
+                    url.set("https://github.com/kairowan/Kuikly-Network")
                     licenses {
                         license {
                             name.set("The Apache License, Version 2.0")
                             url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                         }
                     }
-                    scm { url.set("https://github.com/catchzoon/kuikly-network") }
+                    scm { url.set("https://github.com/kairowan/Kuikly-Network") }
                     developers {
                         developer {
                             id.set("catchzoon")
@@ -52,7 +52,7 @@ subprojects {
                     }
                     issueManagement {
                         system.set("GitHub")
-                        url.set("https://github.com/catchzoon/kuikly-network/issues")
+                        url.set("https://github.com/kairowan/Kuikly-Network/issues")
                     }
                 }
             }
@@ -84,6 +84,31 @@ subprojects {
             }
         }
     }
+}
+
+val jitPackModules = listOf(
+    "network-core",
+    "network-kuikly",
+    "network-inspector",
+    "network-koin",
+    "network-realtime",
+    "network-testing",
+)
+
+tasks.register("publishJitPackToMavenLocal") {
+    group = "publishing"
+    description = "Publishes JitPack's KMP metadata, Android, KSP and BOM artifacts to Maven Local"
+    // ponytail: JitPack runs on Linux, so Apple KLibs stay in the macOS-built GitHub Release bundle.
+    dependsOn(jitPackModules.flatMap { module ->
+        listOf(
+            ":$module:publishKotlinMultiplatformPublicationToMavenLocal",
+            ":$module:publishAndroidReleasePublicationToMavenLocal",
+        )
+    })
+    dependsOn(
+        ":network-ksp:publishMavenPublicationToMavenLocal",
+        ":network-bom:publishBomPublicationToMavenLocal",
+    )
 }
 
 buildscript {

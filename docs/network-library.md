@@ -150,4 +150,4 @@ ArkTS 适配器单独作为 OHPM 包交付，不污染标准 Maven KMP 元数据
 鸿蒙构建要求已安装 DevEco/OpenHarmony SDK，并设置 `OHOS_SDK_HOME` 或 `DEVECO_STUDIO_HOME`。
 构建脚本会使用 Kuikly 官方 OHOS settings，并把 `shared`、`network-core`、`network-kuikly` 和
 `network-ksp` 纳入同一个 KBA 编译图；缺少 SDK 时会在编译前给出明确提示。第二条命令会生成
-携带 `libshared.so` 的 release HAR，细节见 [`harmony-har-release.md`](harmony-har-release.md)。
+携带 `libshared.so` 的 release HAR，使用方式见 [HarmonyOS / HAR](platforms/harmony.md)。

@@ -5,7 +5,6 @@ import com.catchzoon.network.core.NetworkRawRequest
 import com.catchzoon.network.core.NetworkRawResponse
 import com.catchzoon.network.core.NetworkTlsPolicy
 import com.catchzoon.network.platform.createPlatformNetworkEngine
-import com.tencent.kuikly.com_tencent_kuikly_ScheduleContextTask
 import com.tencent.kuikly.core.pager.Pager
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.COpaque
@@ -49,11 +48,11 @@ private suspend fun <T> resumeOnKuiklyContext(result: Result<T>): T =
             if (continuation.isActive) continuation.resumeWith(result)
         }
         val token = callback.asCPointer().rawValue.toLong().toString()
-        com_tencent_kuikly_ScheduleContextTask(token, resumeKuiklyContextTask)
+        scheduleKuiklyContextTask(token)
     }
 
 @OptIn(ExperimentalForeignApi::class)
-private val resumeKuiklyContextTask = staticCFunction { token: CPointer<ByteVar>? ->
+internal val resumeKuiklyContextTask = staticCFunction { token: CPointer<ByteVar>? ->
     val callback = token
         ?.toKString()
         ?.toLongOrNull()
@@ -66,3 +65,6 @@ private val resumeKuiklyContextTask = staticCFunction { token: CPointer<ByteVar>
         callback.dispose()
     }
 }
+
+// ponytail: Kuikly 的 C interop 符号只存在于叶子 target，不能进入 iosMain 发布元数据编译。
+internal expect fun scheduleKuiklyContextTask(token: String)
