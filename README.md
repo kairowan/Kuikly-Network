@@ -67,7 +67,7 @@ dependencyResolutionManagement {
 按需添加模块：
 
 ```kotlin
-val networkVersion = "v0.1.0"
+val networkVersion = "v0.1.1"
 
 commonMain.dependencies {
     implementation(platform("com.github.kairowan.Kuikly-Network:network-bom:$networkVersion"))
@@ -80,7 +80,7 @@ dependencies {
 ```
 
 JitPack 构建 Linux/Android 产物；GitHub Release 的 Maven 压缩包额外包含 macOS 构建的 iOS KLib。
-HarmonyOS 使用同一 Release 附带的 `network-ohos-0.1.0.har`。
+HarmonyOS 使用同一 Release 附带的 `network-ohos-0.1.1.har`。
 
 ## 三步发起请求
 

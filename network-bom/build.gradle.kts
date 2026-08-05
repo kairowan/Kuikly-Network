@@ -5,13 +5,20 @@ plugins {
 
 dependencies {
     constraints {
-        api(project(":network-core"))
-        api(project(":network-kuikly"))
-        api(project(":network-inspector"))
-        api(project(":network-koin"))
-        api(project(":network-realtime"))
-        api(project(":network-testing"))
-        api(project(":network-ksp"))
+        val publishedGroup = if (providers.gradleProperty("jitpackRelease").map(String::toBoolean).getOrElse(false)) {
+            "com.github.kairowan.Kuikly-Network"
+        } else {
+            project.group.toString()
+        }
+        listOf(
+            "network-core",
+            "network-kuikly",
+            "network-inspector",
+            "network-koin",
+            "network-realtime",
+            "network-testing",
+            "network-ksp",
+        ).forEach { module -> api("$publishedGroup:$module:${project.version}") }
     }
 }
 

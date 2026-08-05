@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 }
 ```
 
-JitPack 的多模块 Group 是 `com.github.kairowan.Kuikly-Network`，版本使用 Git Tag `v0.1.0`。
+JitPack 的多模块 Group 是 `com.github.kairowan.Kuikly-Network`，版本使用 Git Tag `v0.1.1`。
 
 ## Android / KMP 共享代码使用 JitPack
 
@@ -36,7 +36,7 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
-val networkVersion = "v0.1.0"
+val networkVersion = "v0.1.1"
 
 kotlin {
     androidTarget()
@@ -62,8 +62,8 @@ dependencies {
 
 ## iOS 使用 Release Maven 包
 
-从 [GitHub Release](https://github.com/kairowan/Kuikly-Network/releases/tag/v0.1.0) 下载
-`kuikly-network-maven-0.1.0.zip`，解压到项目的 `repo` 目录：
+从 [GitHub Release](https://github.com/kairowan/Kuikly-Network/releases/tag/v0.1.1) 下载
+`kuikly-network-maven-0.1.1.zip`，解压到项目的 `repo` 目录：
 
 ```kotlin title="settings.gradle.kts"
 dependencyResolutionManagement {
@@ -78,7 +78,7 @@ dependencyResolutionManagement {
 完整 KMP 坐标使用发布物原始 Group：
 
 ```kotlin title="shared/build.gradle.kts"
-val networkVersion = "0.1.0"
+val networkVersion = "0.1.1"
 
 commonMain.dependencies {
     implementation(platform("com.catchzoon.network:network-bom:$networkVersion"))

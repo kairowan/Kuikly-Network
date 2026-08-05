@@ -7,7 +7,7 @@
 ```kotlin
 commonTest.dependencies {
     implementation(kotlin("test"))
-    implementation("com.catchzoon.network:network-testing:0.1.0-SNAPSHOT")
+    implementation("com.catchzoon.network:network-testing:0.1.2-SNAPSHOT")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:<coroutines-version>")
 }
 ```

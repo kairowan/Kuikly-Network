@@ -27,7 +27,7 @@
 Tag 发布使用根目录 `jitpack.yml`，JitPack 会执行：
 
 ```bash
-./gradlew publishJitPackToMavenLocal -PnetworkVersion="$VERSION"
+./gradlew publishJitPackToMavenLocal -PnetworkVersion="$VERSION" -PjitpackRelease=true
 ```
 
 该任务发布 KMP 根元数据、Android AAR、KSP、BOM 和可选模块。JitPack 构建机是 Linux，不能生成

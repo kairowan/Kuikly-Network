@@ -24,7 +24,7 @@ allprojects {
     group = "com.catchzoon.network"
     version = providers.gradleProperty("networkVersion")
         .orElse(providers.environmentVariable("NETWORK_VERSION"))
-        .orElse("0.1.0-SNAPSHOT")
+        .orElse("0.1.2-SNAPSHOT")
         .get()
 }
 

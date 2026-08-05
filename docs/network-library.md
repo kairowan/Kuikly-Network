@@ -31,7 +31,7 @@ NetworkKit。公共层不依赖 Activity、ViewModel 或具体业务。
 
 ```kotlin
 commonMain.dependencies {
-    implementation(platform("com.catchzoon.network:network-bom:0.1.0"))
+    implementation(platform("com.catchzoon.network:network-bom:0.1.1"))
     implementation("com.catchzoon.network:network-core")
 }
 ```

@@ -2,4 +2,4 @@ jdk:
   - openjdk17
 
 install:
-  - ./gradlew publishJitPackToMavenLocal -PnetworkVersion="$VERSION"
+  - ./gradlew publishJitPackToMavenLocal -PnetworkVersion="$VERSION" -PjitpackRelease=true
