@@ -6,11 +6,17 @@ network_common="$project_root/network-core/src/commonMain/kotlin/com/catchzoon/n
 android_transport="$project_root/network-core/src/androidMain/kotlin/com/catchzoon/network/platform"
 sample_common="$project_root/shared/src/commonMain/kotlin"
 
+if command -v rg >/dev/null 2>&1; then
+  search=(rg)
+else
+  search=(grep -R -E)
+fi
+
 fail_if_found() {
   local pattern="$1"
   local path="$2"
   local message="$3"
-  if rg -n "$pattern" "$path"; then
+  if "${search[@]}" -n "$pattern" "$path"; then
     echo "network architecture check failed: $message" >&2
     exit 1
   fi
@@ -22,9 +28,9 @@ fail_if_found 'import com\.google\.gson\.' "$network_common" "Gson escaped Andro
 fail_if_found 'https?://.*\+' "$sample_common" "sample rebuilt URLs with string concatenation"
 fail_if_found 'com\.catchzoon\.(app|feature|data\.repository)' "$sample_common" "business code leaked into the library sample"
 
-rg -q 'OkHttpClient' "$android_transport/RetrofitNetworkEngine.kt"
-rg -q 'Retrofit\.Builder' "$android_transport/RetrofitNetworkEngine.kt"
-rg -q '@NetworkService' "$sample_common/com/catchzoon/network/sample/api/SampleApi.kt"
-rg -q 'closeNetworkScope' "$sample_common/com/catchzoon/network/sample/NetworkSamplePage.kt"
+"${search[@]}" -q 'OkHttpClient' "$android_transport/RetrofitNetworkEngine.kt"
+"${search[@]}" -q 'Retrofit\.Builder' "$android_transport/RetrofitNetworkEngine.kt"
+"${search[@]}" -q '@NetworkService' "$sample_common/com/catchzoon/network/sample/api/SampleApi.kt"
+"${search[@]}" -q 'closeNetworkScope' "$sample_common/com/catchzoon/network/sample/NetworkSamplePage.kt"
 
 echo "network architecture check passed"
