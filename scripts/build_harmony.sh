@@ -105,6 +105,12 @@ if [ ! -x "$OHPM_BIN" ]; then
   exit 1
 fi
 
+BUILD_PROFILE="$APP/build-profile.json5"
+if [ ! -f "$BUILD_PROFILE" ]; then
+  cp "$APP/build-profile.example.json5" "$BUILD_PROFILE"
+  printf '%s\n' "Created local Harmony build profile: $BUILD_PROFILE"
+fi
+
 cd "$APP"
 "$OHPM_BIN" install
 if [ "$ARTIFACT" = hap ]; then

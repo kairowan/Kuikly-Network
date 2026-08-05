@@ -10,7 +10,6 @@ copyright: Copyright &copy; 2026 Catchzoon Mobile Team
 exclude_docs: |
   network-migration.md
   network-release.md
-  harmony-har-release.md
 
 theme:
   name: material
@@ -126,6 +125,7 @@ nav:
       - Android 与 iOS: platforms/android-ios.md
       - Kuikly 生命周期: platforms/kuikly.md
       - HarmonyOS / HAR: platforms/harmony.md
+      - Harmony HAR 发布: harmony-har-release.md
   - 工程实践:
       - 架构设计: network-library.md
       - 测试: guides/testing.md

@@ -16,6 +16,12 @@ HAP，因此不会因为“经过 HAR”增加一次 IPC 或网络跳转。
 
 ## 2. 构建环境
 
+!!! warning "不要提交本机配置"
+    `ohosApp/build-profile.json5`、`local.properties`、`.ohpmrc`、签名证书、私钥、密码和本机绝对
+    SDK 路径都只属于开发者本机，不能提交到 GitHub。仓库只跟踪
+    `ohosApp/build-profile.example.json5`；首次构建会自动生成本机配置，DevEco 自动签名也只修改该
+    已忽略文件。提交前应检查 `git status --short` 和暂存区差异。
+
 - DevEco Studio 和匹配的 OpenHarmony SDK。
 - JDK、Kotlin KBA 和 Kuikly 依赖由当前工程脚本与 vendor 工程管理。
 - 默认从 `/Applications/DevEco-Studio.app` 查找 DevEco Studio；其他位置可设置
