@@ -1,0 +1,87 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.catchzoon.network:network-realtime>
+abstract fun interface com.catchzoon.network.realtime/NetworkSocketTransport { // com.catchzoon.network.realtime/NetworkSocketTransport|null[0]
+    abstract suspend fun connect(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>): com.catchzoon.network.realtime/NetworkSocketConnection // com.catchzoon.network.realtime/NetworkSocketTransport.connect|connect(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+}
+
+abstract interface com.catchzoon.network.realtime/NetworkSocketConnection { // com.catchzoon.network.realtime/NetworkSocketConnection|null[0]
+    abstract val incoming // com.catchzoon.network.realtime/NetworkSocketConnection.incoming|{}incoming[0]
+        abstract fun <get-incoming>(): kotlinx.coroutines.flow/Flow<com.catchzoon.network.realtime/NetworkSocketFrame> // com.catchzoon.network.realtime/NetworkSocketConnection.incoming.<get-incoming>|<get-incoming>(){}[0]
+
+    abstract suspend fun close(kotlin/Int = ..., kotlin/String = ...) // com.catchzoon.network.realtime/NetworkSocketConnection.close|close(kotlin.Int;kotlin.String){}[0]
+    abstract suspend fun send(com.catchzoon.network.realtime/NetworkSocketFrame): kotlin/Boolean // com.catchzoon.network.realtime/NetworkSocketConnection.send|send(com.catchzoon.network.realtime.NetworkSocketFrame){}[0]
+}
+
+sealed interface com.catchzoon.network.realtime/NetworkSocketFrame { // com.catchzoon.network.realtime/NetworkSocketFrame|null[0]
+    final class Binary : com.catchzoon.network.realtime/NetworkSocketFrame { // com.catchzoon.network.realtime/NetworkSocketFrame.Binary|null[0]
+        constructor <init>(kotlin/ByteArray) // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.<init>|<init>(kotlin.ByteArray){}[0]
+
+        final val value // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.value|{}value[0]
+            final fun <get-value>(): kotlin/ByteArray // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): kotlin/ByteArray // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.component1|component1(){}[0]
+        final fun copy(kotlin/ByteArray = ...): com.catchzoon.network.realtime/NetworkSocketFrame.Binary // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.copy|copy(kotlin.ByteArray){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Binary.toString|toString(){}[0]
+    }
+
+    final class Closing : com.catchzoon.network.realtime/NetworkSocketFrame { // com.catchzoon.network.realtime/NetworkSocketFrame.Closing|null[0]
+        constructor <init>(kotlin/Int, kotlin/String) // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.<init>|<init>(kotlin.Int;kotlin.String){}[0]
+
+        final val code // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.code|{}code[0]
+            final fun <get-code>(): kotlin/Int // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.code.<get-code>|<get-code>(){}[0]
+        final val reason // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.reason|{}reason[0]
+            final fun <get-reason>(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.reason.<get-reason>|<get-reason>(){}[0]
+
+        final fun component1(): kotlin/Int // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.component1|component1(){}[0]
+        final fun component2(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.component2|component2(){}[0]
+        final fun copy(kotlin/Int = ..., kotlin/String = ...): com.catchzoon.network.realtime/NetworkSocketFrame.Closing // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.copy|copy(kotlin.Int;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Closing.toString|toString(){}[0]
+    }
+
+    final class Text : com.catchzoon.network.realtime/NetworkSocketFrame { // com.catchzoon.network.realtime/NetworkSocketFrame.Text|null[0]
+        constructor <init>(kotlin/String) // com.catchzoon.network.realtime/NetworkSocketFrame.Text.<init>|<init>(kotlin.String){}[0]
+
+        final val value // com.catchzoon.network.realtime/NetworkSocketFrame.Text.value|{}value[0]
+            final fun <get-value>(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Text.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Text.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): com.catchzoon.network.realtime/NetworkSocketFrame.Text // com.catchzoon.network.realtime/NetworkSocketFrame.Text.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.realtime/NetworkSocketFrame.Text.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.realtime/NetworkSocketFrame.Text.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.realtime/NetworkSocketFrame.Text.toString|toString(){}[0]
+    }
+}
+
+final class com.catchzoon.network.realtime/ServerSentEvent { // com.catchzoon.network.realtime/ServerSentEvent|null[0]
+    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String? = ..., kotlin/Long? = ...) // com.catchzoon.network.realtime/ServerSentEvent.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String?;kotlin.Long?){}[0]
+
+    final val data // com.catchzoon.network.realtime/ServerSentEvent.data|{}data[0]
+        final fun <get-data>(): kotlin/String // com.catchzoon.network.realtime/ServerSentEvent.data.<get-data>|<get-data>(){}[0]
+    final val event // com.catchzoon.network.realtime/ServerSentEvent.event|{}event[0]
+        final fun <get-event>(): kotlin/String? // com.catchzoon.network.realtime/ServerSentEvent.event.<get-event>|<get-event>(){}[0]
+    final val id // com.catchzoon.network.realtime/ServerSentEvent.id|{}id[0]
+        final fun <get-id>(): kotlin/String? // com.catchzoon.network.realtime/ServerSentEvent.id.<get-id>|<get-id>(){}[0]
+    final val retryMillis // com.catchzoon.network.realtime/ServerSentEvent.retryMillis|{}retryMillis[0]
+        final fun <get-retryMillis>(): kotlin/Long? // com.catchzoon.network.realtime/ServerSentEvent.retryMillis.<get-retryMillis>|<get-retryMillis>(){}[0]
+
+    final fun component1(): kotlin/String // com.catchzoon.network.realtime/ServerSentEvent.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // com.catchzoon.network.realtime/ServerSentEvent.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // com.catchzoon.network.realtime/ServerSentEvent.component3|component3(){}[0]
+    final fun component4(): kotlin/Long? // com.catchzoon.network.realtime/ServerSentEvent.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Long? = ...): com.catchzoon.network.realtime/ServerSentEvent // com.catchzoon.network.realtime/ServerSentEvent.copy|copy(kotlin.String;kotlin.String?;kotlin.String?;kotlin.Long?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.realtime/ServerSentEvent.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.catchzoon.network.realtime/ServerSentEvent.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.catchzoon.network.realtime/ServerSentEvent.toString|toString(){}[0]
+}
+
+final fun com.catchzoon.network.realtime/parseServerSentEvents(kotlinx.coroutines.flow/Flow<kotlin/String>): kotlinx.coroutines.flow/Flow<com.catchzoon.network.realtime/ServerSentEvent> // com.catchzoon.network.realtime/parseServerSentEvents|parseServerSentEvents(kotlinx.coroutines.flow.Flow<kotlin.String>){}[0]

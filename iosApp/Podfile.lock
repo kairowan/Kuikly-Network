@@ -1,0 +1,41 @@
+PODS:
+  - libpag (4.3.71)
+  - Masonry (1.1.0)
+  - OpenKuiklyIOSRender (2.24.0)
+  - SDWebImage (5.20.1):
+    - SDWebImage/Core (= 5.20.1)
+  - SDWebImage/Core (5.20.1)
+  - shared (1.0.0)
+  - WMPlayer (5.0.0):
+    - Masonry
+
+DEPENDENCIES:
+  - libpag (~> 4.3.21)
+  - OpenKuiklyIOSRender (= 2.24.0)
+  - SDWebImage (~> 5.20.1)
+  - shared (from `../shared`)
+  - WMPlayer (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - libpag
+    - Masonry
+    - OpenKuiklyIOSRender
+    - SDWebImage
+    - WMPlayer
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  libpag: ef557e782d9b1b8c694d7031977ac524f1b99260
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  OpenKuiklyIOSRender: 7e846eb2455ead4090f475f692e33ac717c4bcac
+  SDWebImage: 33d0f23bddeb5d209ae959153883247be6703713
+  shared: 0b18c7da0b6457cb31e096acf01a5d99953a1248
+  WMPlayer: a914f80ed5dca7cd9e3a94ec07a2b02eec8c15c0
+
+PODFILE CHECKSUM: f8f449fa2cf724326d7686bbc28a85f2eed1de95
+
+COCOAPODS: 1.17.0

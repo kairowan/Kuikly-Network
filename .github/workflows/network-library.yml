@@ -1,0 +1,101 @@
+name: Network library
+
+on:
+  pull_request:
+    paths:
+      - "network-*/**"
+      - "shared/**"
+      - "androidApp/**"
+      - "ohosApp/entry/src/main/ets/kuikly/**"
+      - "harmony-kmp/**"
+      - "scripts/*network*"
+      - "scripts/*harmony*"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle/**"
+      - ".github/workflows/network-library.yml"
+  push:
+    branches: [main]
+    paths:
+      - "network-*/**"
+      - "shared/**"
+      - "androidApp/**"
+      - "ohosApp/entry/src/main/ets/kuikly/**"
+      - "harmony-kmp/**"
+      - "scripts/*network*"
+      - "scripts/*harmony*"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: network-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Android、单元测试与公共 API
+        run: |
+          ./gradlew androidApiCheck \
+            :network-core:testDebugUnitTest \
+            :network-inspector:testDebugUnitTest \
+            :network-realtime:testDebugUnitTest \
+            :network-testing:testDebugUnitTest \
+            :network-koin:compileDebugKotlinAndroid \
+            :network-kuikly:compileDebugKotlinAndroid \
+            :shared:compileDebugKotlinAndroid \
+            :androidApp:assembleDebug \
+            :network-core:generatePomFileForAndroidReleasePublication \
+            :network-core:generatePomFileForKotlinMultiplatformPublication \
+            :network-ksp:generatePomFileForMavenPublication \
+            :network-bom:generatePomFileForBomPublication
+      - name: 架构边界
+        run: ./scripts/check_network_architecture.sh
+
+  ios:
+    runs-on: macos-14
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: iOS 模拟器与 KLib ABI
+        run: |
+          ./gradlew klibApiCheck \
+            :network-core:compileKotlinIosSimulatorArm64 \
+            :network-kuikly:compileKotlinIosSimulatorArm64 \
+            :network-inspector:compileKotlinIosSimulatorArm64 \
+            :network-koin:compileKotlinIosSimulatorArm64 \
+            :network-realtime:compileKotlinIosSimulatorArm64 \
+            :network-testing:compileKotlinIosSimulatorArm64
+
+  harmony-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: 鸿蒙桥接静态门禁
+        run: |
+          bash -n scripts/bootstrap_kuikly_harmony.sh
+          bash -n scripts/build_harmony.sh
+          grep -q '../../shared/src/commonMain/kotlin' harmony-kmp/shared/build.gradle.kts
+          grep -q '2.0.21-coroutines-KBA-001' harmony-kmp/shared/build.gradle.kts
+          grep -q 'kuikly-network-ksp' harmony-kmp/shared/build.gradle.kts
+          grep -q 'CatchzoonNetworkModule' ohosApp/entry/src/main/ets/kuikly/KuiklyViewDelegate.ets
+          grep -q 'KRNetworkModule' network-ohos/src/main/ets/CatchzoonNetworkModule.ets
+          grep -q '@catchzoon/network-ohos' ohosApp/entry/oh-package.json5

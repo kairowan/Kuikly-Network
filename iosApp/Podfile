@@ -1,0 +1,53 @@
+
+source 'https://cdn.cocoapods.org/'
+project 'iosApp.xcodeproj'
+
+target 'iosApp' do
+  platform :ios, '16.0'
+  # 官方 Kuikly iOS 宿主扩展实际使用以下渲染依赖。
+  pod 'SDWebImage', '~> 5.20.1'
+  pod 'WMPlayer', '~> 5.0'
+  pod 'libpag', '~> 4.3.21'
+  pod 'OpenKuiklyIOSRender', '2.24.0'
+  pod 'shared', :path => '../shared'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+
+    next unless target.name == 'shared'
+
+    phase = target.shell_script_build_phases.find { |item| item.name == '[CP-User] Build shared' }
+    next unless phase
+
+    sync_redirected_framework = <<~'SH'
+      ACTUAL_BUILD_DIR=$("$REPO_ROOT/../gradlew" -p "$REPO_ROOT" "$KOTLIN_PROJECT_PATH:properties" -q | sed -n 's/^buildDir: //p' | tail -n 1)
+      EXPECTED_FRAMEWORK="$REPO_ROOT/build/cocoapods/framework/$PRODUCT_MODULE_NAME.framework"
+      ACTUAL_FRAMEWORK="$ACTUAL_BUILD_DIR/cocoapods/framework/$PRODUCT_MODULE_NAME.framework"
+      if [ "$ACTUAL_FRAMEWORK" != "$EXPECTED_FRAMEWORK" ]; then
+        mkdir -p "$EXPECTED_FRAMEWORK"
+        COPYFILE_DISABLE=1 rsync -a --delete "$ACTUAL_FRAMEWORK/" "$EXPECTED_FRAMEWORK/"
+        command -v dot_clean >/dev/null 2>&1 && dot_clean -m "$EXPECTED_FRAMEWORK"
+      fi
+    SH
+    phase.shell_script = "#{phase.shell_script}\n#{sync_redirected_framework}" unless phase.shell_script.include?('ACTUAL_BUILD_DIR=')
+  end
+end
+
+post_integrate do |installer|
+  cleanup_sources = 'if command -v dot_clean >/dev/null 2>&1; then dot_clean -m "${PODS_ROOT}"; fi'
+  cleanup_product = 'if command -v dot_clean >/dev/null 2>&1; then dot_clean -m "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"; fi'
+  installer.aggregate_targets.each do |aggregate_target|
+    aggregate_target.user_targets.each do |target|
+      phase = target.shell_script_build_phases.find { |item| item.name == '[CP] Copy Pods Resources' }
+      next unless phase
+      phase.shell_script = "#{cleanup_sources}\n#{phase.shell_script}" unless phase.shell_script.include?('dot_clean -m "${PODS_ROOT}"')
+      phase.shell_script = "#{phase.shell_script}\n#{cleanup_product}" unless phase.shell_script.include?('UNLOCALIZED_RESOURCES_FOLDER_PATH')
+      target.project.save
+    end
+  end
+end

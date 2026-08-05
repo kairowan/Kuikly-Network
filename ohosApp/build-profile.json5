@@ -1,0 +1,67 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/haonan/.ohos/config/default_ohosApp_bAan70AufgvG4HVaAjOT_dhHnWFhzYIlmmcKQjbEarI=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B9D785D3BC2B0761A22399E0EC1CE937BBE1FCB24052F98892F5B8E26C84DE2BF15E80622C5C98C",
+          "profile": "/Users/haonan/.ohos/config/default_ohosApp_bAan70AufgvG4HVaAjOT_dhHnWFhzYIlmmcKQjbEarI=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/haonan/.ohos/config/default_ohosApp_bAan70AufgvG4HVaAjOT_dhHnWFhzYIlmmcKQjbEarI=.p12",
+          "storePassword": "0000001B1B4EEB42BAA244CF547EBB2FF571B8C2F71218FB9A2C7F53955A7D39E5BCD18A74B26FE9DB097C"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "targetSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "network_ohos",
+      "srcPath": "../network-ohos",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

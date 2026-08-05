@@ -1,0 +1,1461 @@
+public abstract interface annotation class com/catchzoon/network/annotation/Body : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Cache : java/lang/annotation/Annotation {
+	public abstract fun maxAgeSeconds ()I
+	public abstract fun mode ()Lcom/catchzoon/network/core/NetworkCacheMode;
+	public abstract fun staleIfErrorSeconds ()I
+	public abstract fun staleWhileRevalidateSeconds ()I
+	public abstract fun tags ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/DELETE : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Field : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/FieldMap : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/FormUrlEncoded : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/GET : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/HEAD : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Header : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/HeaderMap : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Headers : java/lang/annotation/Annotation {
+	public abstract fun value ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/IdempotencyKey : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/InvalidateCache : java/lang/annotation/Annotation {
+	public abstract fun tags ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Multipart : java/lang/annotation/Annotation {
+}
+
+public final class com/catchzoon/network/annotation/NetworkSerialization : java/lang/Enum {
+	public static final field GSON Lcom/catchzoon/network/annotation/NetworkSerialization;
+	public static final field KOTLINX Lcom/catchzoon/network/annotation/NetworkSerialization;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/annotation/NetworkSerialization;
+	public static fun values ()[Lcom/catchzoon/network/annotation/NetworkSerialization;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/NetworkService : java/lang/annotation/Annotation {
+	public abstract fun client ()Ljava/lang/String;
+	public abstract fun serialization ()Lcom/catchzoon/network/annotation/NetworkSerialization;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/OPTIONS : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/PATCH : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/POST : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/PUT : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Part : java/lang/annotation/Annotation {
+	public abstract fun contentType ()Ljava/lang/String;
+	public abstract fun fileName ()Ljava/lang/String;
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/PartMap : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Path : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Priority : java/lang/annotation/Annotation {
+	public abstract fun value ()Lcom/catchzoon/network/core/NetworkPriority;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Query : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/QueryMap : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Redirects : java/lang/annotation/Annotation {
+	public abstract fun allowCrossOrigin ()Z
+	public abstract fun enabled ()Z
+	public abstract fun maxRedirects ()I
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/RequestId : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/ResponseLimit : java/lang/annotation/Annotation {
+	public abstract fun bytes ()J
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Retry : java/lang/annotation/Annotation {
+	public abstract fun initialDelayMillis ()J
+	public abstract fun jitterRatio ()D
+	public abstract fun maxAttempts ()I
+	public abstract fun maxDelayMillis ()J
+	public abstract fun multiplier ()D
+	public abstract fun retryUnsafeMethods ()Z
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Streaming : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Tags : java/lang/annotation/Annotation {
+	public abstract fun value ()[Ljava/lang/String;
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Timeout : java/lang/annotation/Annotation {
+	public abstract fun seconds ()I
+}
+
+public abstract interface annotation class com/catchzoon/network/annotation/Url : java/lang/annotation/Annotation {
+}
+
+public final class com/catchzoon/network/api/EmptyNetworkRoute {
+	public fun <init> (Lcom/catchzoon/network/api/NetworkRoute;)V
+	public final fun invoke ()Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public abstract class com/catchzoon/network/api/GsonNetworkApi {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkClient;Lcom/google/gson/Gson;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/core/NetworkClient;Lcom/google/gson/Gson;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun createGsonRoute (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/api/NetworkRoute;
+	public final fun getGson ()Lcom/google/gson/Gson;
+	public final fun getGsonRouteClient ()Lcom/catchzoon/network/core/NetworkClient;
+}
+
+public abstract class com/catchzoon/network/api/NetworkApi {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkClient;)V
+	public final fun createRoute (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lkotlinx/serialization/SerializationStrategy;Lkotlinx/serialization/DeserializationStrategy;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/api/NetworkRoute;
+	public final fun getRouteClient ()Lcom/catchzoon/network/core/NetworkClient;
+}
+
+public abstract interface class com/catchzoon/network/api/NetworkByteDecoder {
+	public abstract fun decode ([B)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/api/NetworkCodecs {
+	public static final field INSTANCE Lcom/catchzoon/network/api/NetworkCodecs;
+	public final fun getByteArrayDecoder ()Lcom/catchzoon/network/api/NetworkByteDecoder;
+	public final fun getStringDecoder ()Lcom/catchzoon/network/api/NetworkDecoder;
+	public final fun getStringEncoder ()Lcom/catchzoon/network/api/NetworkEncoder;
+	public final fun getUnitEncoder ()Lcom/catchzoon/network/api/NetworkEncoder;
+}
+
+public abstract interface class com/catchzoon/network/api/NetworkDecoder {
+	public abstract fun decode (Ljava/lang/String;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/api/NetworkEncoder {
+	public abstract fun encode (Ljava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/api/NetworkEndpoint {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkMethod;Lkotlin/jvm/functions/Function1;Lcom/catchzoon/network/api/NetworkEncoder;Lcom/catchzoon/network/api/NetworkDecoder;Lcom/catchzoon/network/api/NetworkByteDecoder;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/core/NetworkMethod;Lkotlin/jvm/functions/Function1;Lcom/catchzoon/network/api/NetworkEncoder;Lcom/catchzoon/network/api/NetworkDecoder;Lcom/catchzoon/network/api/NetworkByteDecoder;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getEmptyResponseFactory ()Lkotlin/jvm/functions/Function0;
+	public final fun getHeaders ()Lkotlin/jvm/functions/Function1;
+	public final fun getMethod ()Lcom/catchzoon/network/core/NetworkMethod;
+	public final fun getPath ()Lkotlin/jvm/functions/Function1;
+	public final fun getRequestEncoder ()Lcom/catchzoon/network/api/NetworkEncoder;
+	public final fun getResponseByteDecoder ()Lcom/catchzoon/network/api/NetworkByteDecoder;
+	public final fun getResponseDecoder ()Lcom/catchzoon/network/api/NetworkDecoder;
+	public final fun getTimeoutSeconds ()Ljava/lang/Integer;
+}
+
+public final class com/catchzoon/network/api/NetworkRoute {
+	public fun <init> (Ljava/lang/String;Lcom/catchzoon/network/api/NetworkRouteConfiguration;Lkotlin/jvm/functions/Function3;)V
+	public final fun invoke (Ljava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public final class com/catchzoon/network/api/NetworkRouteBuilder {
+	public fun <init> ()V
+	public final fun build (Ljava/lang/String;)Lcom/catchzoon/network/api/NetworkRouteConfiguration;
+	public final fun cache (II)V
+	public static synthetic fun cache$default (Lcom/catchzoon/network/api/NetworkRouteBuilder;IIILjava/lang/Object;)V
+	public final fun header (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun idempotencyKey (Lkotlin/jvm/functions/Function1;)V
+	public final fun path (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun query (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun responseLimit (J)V
+	public final fun retry (I)V
+	public final fun retry (Lcom/catchzoon/network/core/NetworkRetryPolicy;)V
+	public final fun timeout (I)V
+}
+
+public final class com/catchzoon/network/api/NetworkRouteConfiguration {
+	public fun <init> (Ljava/util/Map;Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Ljava/lang/Long;Lcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;)V
+	public final fun options (Ljava/lang/Object;)Lcom/catchzoon/network/core/NetworkRequestOptions;
+	public final fun resolvePath (Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/api/NetworkUrlBuilder {
+	public final fun build ()Ljava/lang/String;
+	public final fun query (Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/api/NetworkUrlBuilder;
+	public final fun segment (Ljava/lang/String;)Lcom/catchzoon/network/api/NetworkUrlBuilder;
+}
+
+public final class com/catchzoon/network/api/NetworkUrlBuilderKt {
+	public static final fun networkUrl (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static synthetic fun networkUrl$default (Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+	public static final fun resolveAnnotatedNetworkUrl (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Z)Ljava/lang/String;
+	public static synthetic fun resolveAnnotatedNetworkUrl$default (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;ZILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/cache/MemoryNetworkCacheStore : com/catchzoon/network/cache/NetworkCacheStore {
+	public fun <init> ()V
+	public fun <init> (IJ)V
+	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun clear (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun put (Ljava/lang/String;Lcom/catchzoon/network/cache/NetworkCacheEntry;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun remove (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeByTags (Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/cache/NetworkCacheEntry {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkRawResponse;JLjava/util/Set;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/core/NetworkRawResponse;JLjava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/util/Set;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkRawResponse;JLjava/util/Set;)Lcom/catchzoon/network/cache/NetworkCacheEntry;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/cache/NetworkCacheEntry;Lcom/catchzoon/network/core/NetworkRawResponse;JLjava/util/Set;ILjava/lang/Object;)Lcom/catchzoon/network/cache/NetworkCacheEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getResponse ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public final fun getStoredAtMillis ()J
+	public final fun getTags ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/cache/NetworkCacheStore {
+	public abstract fun clear (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun put (Ljava/lang/String;Lcom/catchzoon/network/cache/NetworkCacheEntry;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun remove (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun removeByTags (Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/cache/NetworkCacheStore$DefaultImpls {
+	public static fun remove (Lcom/catchzoon/network/cache/NetworkCacheStore;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static fun removeByTags (Lcom/catchzoon/network/cache/NetworkCacheStore;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/cache/NetworkPersistentCacheStore : com/catchzoon/network/cache/NetworkCacheStore {
+	public abstract fun getEncryptedAtRest ()Z
+}
+
+public final class com/catchzoon/network/cache/NetworkPersistentCacheStore$DefaultImpls {
+	public static fun remove (Lcom/catchzoon/network/cache/NetworkPersistentCacheStore;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static fun removeByTags (Lcom/catchzoon/network/cache/NetworkPersistentCacheStore;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/cache/NetworkResponseCacheInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lcom/catchzoon/network/cache/NetworkCacheStore;Lcom/catchzoon/network/core/NetworkClock;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/cache/NetworkCacheStore;Lcom/catchzoon/network/core/NetworkClock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/codec/KotlinxJsonNetworkConverter : com/catchzoon/network/codec/NetworkConverter {
+	public fun <init> ()V
+	public fun <init> (Lkotlinx/serialization/json/Json;)V
+	public synthetic fun <init> (Lkotlinx/serialization/json/Json;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun decode (Lkotlinx/serialization/DeserializationStrategy;Ljava/lang/String;)Ljava/lang/Object;
+	public fun encode (Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)Ljava/lang/String;
+	public final fun getJson ()Lkotlinx/serialization/json/Json;
+}
+
+public abstract interface class com/catchzoon/network/codec/NetworkConverter {
+	public abstract fun decode (Lkotlinx/serialization/DeserializationStrategy;Ljava/lang/String;)Ljava/lang/Object;
+	public abstract fun encode (Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/codec/NetworkConverterKt {
+	public static final fun defaultNetworkJson ()Lkotlinx/serialization/json/Json;
+}
+
+public final class com/catchzoon/network/core/MonotonicNetworkClock : com/catchzoon/network/core/NetworkClock {
+	public static final field INSTANCE Lcom/catchzoon/network/core/MonotonicNetworkClock;
+	public fun nowMillis ()J
+}
+
+public final class com/catchzoon/network/core/NetworkCacheMode : java/lang/Enum {
+	public static final field CACHE_FIRST Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static final field CACHE_ONLY Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static final field NETWORK_FIRST Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static final field NETWORK_ONLY Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static final field STALE_WHILE_REVALIDATE Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCacheMode;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkCacheMode;
+}
+
+public final class com/catchzoon/network/core/NetworkCachePolicy {
+	public static final field Companion Lcom/catchzoon/network/core/NetworkCachePolicy$Companion;
+	public fun <init> (IILcom/catchzoon/network/core/NetworkCacheMode;I)V
+	public synthetic fun <init> (IILcom/catchzoon/network/core/NetworkCacheMode;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Lcom/catchzoon/network/core/NetworkCacheMode;
+	public final fun component4 ()I
+	public final fun copy (IILcom/catchzoon/network/core/NetworkCacheMode;I)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkCachePolicy;IILcom/catchzoon/network/core/NetworkCacheMode;IILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnabled ()Z
+	public final fun getMaxAgeSeconds ()I
+	public final fun getMode ()Lcom/catchzoon/network/core/NetworkCacheMode;
+	public final fun getStaleIfErrorSeconds ()I
+	public final fun getStaleWhileRevalidateSeconds ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkCachePolicy$Companion {
+	public final fun cacheFirst (I)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun cacheOnly (I)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun networkFirst (II)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public static synthetic fun networkFirst$default (Lcom/catchzoon/network/core/NetworkCachePolicy$Companion;IIILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun none ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun staleIfError (II)Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun staleWhileRevalidate (II)Lcom/catchzoon/network/core/NetworkCachePolicy;
+}
+
+public final class com/catchzoon/network/core/NetworkCall {
+	public final fun asFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun asResultFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun await (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun awaitData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun cache (Lcom/catchzoon/network/core/NetworkCachePolicy;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun cacheFirst (I)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun cacheOnly (I)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun cacheTags ([Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun enqueue (Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
+	public static synthetic fun enqueue$default (Lcom/catchzoon/network/core/NetworkCall;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+	public final fun fallbackTo (Lcom/catchzoon/network/core/NetworkCall;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun flatMap (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun fold (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun header (Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun headers (Ljava/util/Map;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun idempotencyKey (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun invalidateCacheTags ([Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun map (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun mapFailure (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun mapSuspend (Lkotlin/jvm/functions/Function2;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun networkFirst (II)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun networkFirst$default (Lcom/catchzoon/network/core/NetworkCall;IIILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun noCache ()Lcom/catchzoon/network/core/NetworkCall;
+	public final fun noRetry ()Lcom/catchzoon/network/core/NetworkCall;
+	public final fun onFailure (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun onSuccess (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun priority (Lcom/catchzoon/network/core/NetworkPriority;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun progress (Lcom/catchzoon/network/core/NetworkProgressListener;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun recover (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun recoverWith (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun redirects (Lcom/catchzoon/network/core/NetworkRedirectPolicy;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun responseLimit (J)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun retry (IJJDDZ)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun retry (Lcom/catchzoon/network/core/NetworkRetryPolicy;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun retry$default (Lcom/catchzoon/network/core/NetworkCall;IJJDDZILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun retryBudget (Lcom/catchzoon/network/core/NetworkRetryBudget;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun retryWhen (Lcom/catchzoon/network/core/NetworkRetryPolicy;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun staleIfError (II)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun staleWhileRevalidate (II)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun tag (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun tags (Ljava/util/Set;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun timeout (I)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun validate (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkCallAdapter {
+	public abstract fun adapt (Lcom/catchzoon/network/core/NetworkCall;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkCallAdapterKt {
+	public static final fun adapt (Lcom/catchzoon/network/core/NetworkCall;Lcom/catchzoon/network/core/NetworkCallAdapter;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkClient {
+	public static final field MAX_RETRY_COUNT I
+	public synthetic fun <init> (Lcom/catchzoon/network/core/NetworkEngine;Ljava/util/List;Lcom/catchzoon/network/core/NetworkErrorMapper;Ljava/util/List;Lcom/catchzoon/network/codec/NetworkConverter;Lcom/catchzoon/network/core/NetworkResponseAdapter;Lcom/catchzoon/network/core/NetworkClientDefaults;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun byteCall (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestOptions;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun byteCall$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestOptions;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun call (Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Lcom/catchzoon/network/core/NetworkRequestOptions;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun call$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Lcom/catchzoon/network/core/NetworkRequestOptions;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun cancelAll ()V
+	public final fun encodedCall (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/api/NetworkDecoder;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun encodedCall (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestBody;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun encodedCall$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/api/NetworkDecoder;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun encodedCall$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkRequestBody;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun execute (Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun execute$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun executeRaw (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun flow (Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Ljava/util/Map;IJ)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun flow$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/api/NetworkEndpoint;Ljava/lang/Object;Ljava/util/Map;IJILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public final fun typedCall (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun typedCall (Lcom/catchzoon/network/core/NetworkMethod;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun typedCall$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun typedCall$default (Lcom/catchzoon/network/core/NetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lkotlinx/serialization/DeserializationStrategy;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public final class com/catchzoon/network/core/NetworkClient$Builder {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkEngine;)V
+	public final fun addEventListener (Lcom/catchzoon/network/core/NetworkEventListener;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun addInterceptor (Lcom/catchzoon/network/core/NetworkInterceptor;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun build ()Lcom/catchzoon/network/core/NetworkClient;
+	public final fun converter (Lcom/catchzoon/network/codec/NetworkConverter;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultCache (Lcom/catchzoon/network/core/NetworkCachePolicy;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultPriority (Lcom/catchzoon/network/core/NetworkPriority;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultRedirects (Lcom/catchzoon/network/core/NetworkRedirectPolicy;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultResponseLimit (J)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultRetry (Lcom/catchzoon/network/core/NetworkRetryPolicy;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaultTimeout (I)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun defaults (Lcom/catchzoon/network/core/NetworkClientDefaults;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun errorMapper (Lcom/catchzoon/network/core/NetworkErrorMapper;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun responseAdapter (Lcom/catchzoon/network/core/NetworkResponseAdapter;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public final fun retryBudget (Lcom/catchzoon/network/core/NetworkRetryBudget;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+}
+
+public final class com/catchzoon/network/core/NetworkClientDefaults {
+	public fun <init> ()V
+	public fun <init> (IJLcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkPriority;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkRetryBudget;)V
+	public synthetic fun <init> (IJLcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkPriority;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkRetryBudget;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public final fun component4 ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun component5 ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun component6 ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun component7 ()Lcom/catchzoon/network/core/NetworkRetryBudget;
+	public final fun copy (IJLcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkPriority;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkRetryBudget;)Lcom/catchzoon/network/core/NetworkClientDefaults;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkClientDefaults;IJLcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkPriority;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkRetryBudget;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClientDefaults;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCachePolicy ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun getMaxResponseBytes ()J
+	public final fun getPriority ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun getRedirectPolicy ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun getRetryBudget ()Lcom/catchzoon/network/core/NetworkRetryBudget;
+	public final fun getRetryPolicy ()Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public final fun getTimeoutSeconds ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkClients {
+	public static final field DEFAULT Ljava/lang/String;
+	public static final field INSTANCE Lcom/catchzoon/network/core/NetworkClients;
+	public final fun client (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkClient;
+	public static synthetic fun client$default (Lcom/catchzoon/network/core/NetworkClients;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient;
+	public final fun getNames ()Ljava/util/Set;
+	public final fun initialize (Lcom/catchzoon/network/core/NetworkClient;Ljava/util/Map;)V
+	public static synthetic fun initialize$default (Lcom/catchzoon/network/core/NetworkClients;Lcom/catchzoon/network/core/NetworkClient;Ljava/util/Map;ILjava/lang/Object;)V
+	public final fun isInitialized ()Z
+	public final fun shutdown ()V
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkClock {
+	public abstract fun nowMillis ()J
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkEngine {
+	public abstract fun cancelAll ()V
+	public abstract fun execute (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkErrorMapper {
+	public abstract fun map (Lcom/catchzoon/network/core/NetworkRawResponse;)Lcom/catchzoon/network/core/NetworkFailure;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkEvent {
+	public abstract fun getPath ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkEvent$Cancelled : com/catchzoon/network/core/NetworkEvent {
+	public fun <init> (Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Lcom/catchzoon/network/core/NetworkEvent$Cancelled;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkEvent$Cancelled;Ljava/lang/String;JILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkEvent$Cancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationMillis ()J
+	public fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkEvent$Completed : com/catchzoon/network/core/NetworkEvent {
+	public fun <init> (Ljava/lang/String;IJLcom/catchzoon/network/core/NetworkResponseSource;)V
+	public synthetic fun <init> (Ljava/lang/String;IJLcom/catchzoon/network/core/NetworkResponseSource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun copy (Ljava/lang/String;IJLcom/catchzoon/network/core/NetworkResponseSource;)Lcom/catchzoon/network/core/NetworkEvent$Completed;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkEvent$Completed;Ljava/lang/String;IJLcom/catchzoon/network/core/NetworkResponseSource;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkEvent$Completed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationMillis ()J
+	public fun getPath ()Ljava/lang/String;
+	public final fun getSource ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkEvent$Failed : com/catchzoon/network/core/NetworkEvent {
+	public fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailure;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun component3 ()J
+	public final fun copy (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailure;J)Lcom/catchzoon/network/core/NetworkEvent$Failed;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkEvent$Failed;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailure;JILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkEvent$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationMillis ()J
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkEvent$Started : com/catchzoon/network/core/NetworkEvent {
+	public fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/catchzoon/network/core/NetworkMethod;
+	public final fun copy (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;)Lcom/catchzoon/network/core/NetworkEvent$Started;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkEvent$Started;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkEvent$Started;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMethod ()Lcom/catchzoon/network/core/NetworkMethod;
+	public fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkEventListener {
+	public abstract fun onEvent (Lcom/catchzoon/network/core/NetworkEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkFailure {
+	public fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;Ljava/lang/String;Ljava/lang/Integer;ZLjava/lang/String;IJ)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;Ljava/lang/String;Ljava/lang/Integer;ZLjava/lang/String;IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Z
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()I
+	public final fun component8 ()J
+	public final fun copy (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;Ljava/lang/String;Ljava/lang/Integer;ZLjava/lang/String;IJ)Lcom/catchzoon/network/core/NetworkFailure;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkFailure;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;Ljava/lang/String;Ljava/lang/Integer;ZLjava/lang/String;IJILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkFailure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttempt ()I
+	public final fun getCategory ()Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public final fun getRetryAfterMillis ()J
+	public final fun getRetryable ()Z
+	public final fun getStatusCode ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkFailureCategory : java/lang/Enum {
+	public static final field CANCELLED Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field CIRCUIT_OPEN Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field CLIENT_THROTTLED Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field CONNECTIVITY Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field DNS Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field HTTP Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field RESPONSE_TOO_LARGE Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field SERIALIZATION Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field TIMEOUT Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field TLS Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field UNKNOWN Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static final field VALIDATION Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkFailureCategory;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkFailureCategory;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkInterceptor {
+	public abstract fun cancelAll ()V
+	public abstract fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkInterceptor$Chain {
+	public abstract fun getRequest ()Lcom/catchzoon/network/core/NetworkRawRequest;
+	public abstract fun proceed (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkInterceptor$Chain$DefaultImpls {
+	public static synthetic fun proceed$default (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkInterceptor$DefaultImpls {
+	public static fun cancelAll (Lcom/catchzoon/network/core/NetworkInterceptor;)V
+}
+
+public final class com/catchzoon/network/core/NetworkMethod : java/lang/Enum {
+	public static final field DELETE Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field GET Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field HEAD Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field OPTIONS Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field PATCH Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field POST Lcom/catchzoon/network/core/NetworkMethod;
+	public static final field PUT Lcom/catchzoon/network/core/NetworkMethod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMethod;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkMethod;
+}
+
+public final class com/catchzoon/network/core/NetworkModelsKt {
+	public static final fun isSafeAbsoluteNetworkUrl (Ljava/lang/String;)Z
+	public static final fun isSafeRelativeNetworkPath (Ljava/lang/String;)Z
+}
+
+public final class com/catchzoon/network/core/NetworkMultipartPart {
+	public static final field Companion Lcom/catchzoon/network/core/NetworkMultipartPart$Companion;
+	public fun <init> (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()[B
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkMultipartPart;Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytes ()[B
+	public final fun getContentType ()Ljava/lang/String;
+	public final fun getFileName ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkMultipartPart$Companion {
+	public final fun file (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static synthetic fun file$default (Lcom/catchzoon/network/core/NetworkMultipartPart$Companion;Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public final fun text (Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkPayload {
+}
+
+public final class com/catchzoon/network/core/NetworkPayload$Data : com/catchzoon/network/core/NetworkPayload {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkPayload$Data;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkPayload$Data;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkPayload$Data;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBody ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkPayload$Failure : com/catchzoon/network/core/NetworkPayload {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkFailure;)Lcom/catchzoon/network/core/NetworkPayload$Failure;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkPayload$Failure;Lcom/catchzoon/network/core/NetworkFailure;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkPayload$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkPriority : java/lang/Enum {
+	public static final field HIGH Lcom/catchzoon/network/core/NetworkPriority;
+	public static final field IMMEDIATE Lcom/catchzoon/network/core/NetworkPriority;
+	public static final field LOW Lcom/catchzoon/network/core/NetworkPriority;
+	public static final field NORMAL Lcom/catchzoon/network/core/NetworkPriority;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkPriority;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkPriority;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkProgressListener {
+	public abstract fun onProgress (Lcom/catchzoon/network/core/NetworkTransferProgress;)V
+}
+
+public final class com/catchzoon/network/core/NetworkRawRequest {
+	public fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;IJLcom/catchzoon/network/core/NetworkCachePolicy;[BLcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;IJLcom/catchzoon/network/core/NetworkCachePolicy;[BLcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/util/Set;
+	public final fun component11 ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun component12 ()Lcom/catchzoon/network/core/NetworkProgressListener;
+	public final fun component13 ()Z
+	public final fun component14 ()Z
+	public final fun component15 ()Ljava/util/Set;
+	public final fun component16 ()Ljava/util/Set;
+	public final fun component2 ()Lcom/catchzoon/network/core/NetworkMethod;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun component5 ()I
+	public final fun component6 ()J
+	public final fun component7 ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun component8 ()[B
+	public final fun component9 ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun copy (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;IJLcom/catchzoon/network/core/NetworkCachePolicy;[BLcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;)Lcom/catchzoon/network/core/NetworkRawRequest;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRawRequest;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;IJLcom/catchzoon/network/core/NetworkCachePolicy;[BLcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRawRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowAbsoluteUrl ()Z
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getBodyBytes ()[B
+	public final fun getCachePolicy ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun getCacheTags ()Ljava/util/Set;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getInvalidateCacheTags ()Ljava/util/Set;
+	public final fun getMaxResponseBytes ()J
+	public final fun getMethod ()Lcom/catchzoon/network/core/NetworkMethod;
+	public final fun getPriority ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun getProgressListener ()Lcom/catchzoon/network/core/NetworkProgressListener;
+	public final fun getRedirectPolicy ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun getRelativePath ()Ljava/lang/String;
+	public final fun getStreamResponse ()Z
+	public final fun getTags ()Ljava/util/Set;
+	public final fun getTimeoutSeconds ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRawResponse {
+	public fun <init> (ILjava/lang/String;Ljava/util/Map;Ljava/lang/String;JLcom/catchzoon/network/core/NetworkResponseSource;[BLjava/util/Map;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/util/Map;Ljava/lang/String;JLcom/catchzoon/network/core/NetworkResponseSource;[BLjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/Map;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun component7 ()[B
+	public final fun component8 ()Ljava/util/Map;
+	public final fun copy (ILjava/lang/String;Ljava/util/Map;Ljava/lang/String;JLcom/catchzoon/network/core/NetworkResponseSource;[BLjava/util/Map;)Lcom/catchzoon/network/core/NetworkRawResponse;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRawResponse;ILjava/lang/String;Ljava/util/Map;Ljava/lang/String;JLcom/catchzoon/network/core/NetworkResponseSource;[BLjava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRawResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getBodyBytes ()[B
+	public final fun getDurationMillis ()J
+	public final fun getErrorMessage ()Ljava/lang/String;
+	public final fun getHeaderValues ()Ljava/util/Map;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getSource ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkRawResult {
+}
+
+public final class com/catchzoon/network/core/NetworkRawResult$Failure : com/catchzoon/network/core/NetworkRawResult {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkFailure;)Lcom/catchzoon/network/core/NetworkRawResult$Failure;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRawResult$Failure;Lcom/catchzoon/network/core/NetworkFailure;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRawResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRawResult$Response : com/catchzoon/network/core/NetworkRawResult {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkRawResponse;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkRawResponse;)Lcom/catchzoon/network/core/NetworkRawResult$Response;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRawResult$Response;Lcom/catchzoon/network/core/NetworkRawResponse;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRawResult$Response;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRedirectPolicy {
+	public fun <init> ()V
+	public fun <init> (ZIZ)V
+	public synthetic fun <init> (ZIZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun copy (ZIZ)Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRedirectPolicy;ZIZILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowCrossOrigin ()Z
+	public final fun getEnabled ()Z
+	public final fun getMaxRedirects ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkRequestBody {
+	public abstract fun bytes ()[B
+	public abstract fun getContentType ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRequestBody$Binary : com/catchzoon/network/core/NetworkRequestBody {
+	public fun <init> ([BLjava/lang/String;)V
+	public synthetic fun <init> ([BLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun bytes ()[B
+	public final fun component1 ()[B
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy ([BLjava/lang/String;)Lcom/catchzoon/network/core/NetworkRequestBody$Binary;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRequestBody$Binary;[BLjava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRequestBody$Binary;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContentType ()Ljava/lang/String;
+	public final fun getValue ()[B
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRequestBody$Text : com/catchzoon/network/core/NetworkRequestBody {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun bytes ()[B
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkRequestBody$Text;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRequestBody$Text;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRequestBody$Text;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getContentType ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRequestBodyKt {
+	public static final fun networkFormBody (Ljava/util/List;)Lcom/catchzoon/network/core/NetworkRequestBody$Text;
+	public static final fun networkMultipartBody (Ljava/util/List;)Lcom/catchzoon/network/core/NetworkRequestBody$Binary;
+	public static final fun networkMultipartPart (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMultipartPart;Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static final fun networkMultipartPart (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static final fun networkMultipartPart (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static synthetic fun networkMultipartPart$default (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMultipartPart;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static synthetic fun networkMultipartPart$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+	public static synthetic fun networkMultipartPart$default (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkMultipartPart;
+}
+
+public final class com/catchzoon/network/core/NetworkRequestException : java/lang/Exception {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+}
+
+public final class com/catchzoon/network/core/NetworkRequestOptions {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/Map;Ljava/lang/Integer;Ljava/lang/Long;Lcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRetryBudget;)V
+	public synthetic fun <init> (Ljava/util/Map;Ljava/lang/Integer;Ljava/lang/Long;Lcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRetryBudget;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/Map;
+	public final fun component10 ()Lcom/catchzoon/network/core/NetworkProgressListener;
+	public final fun component11 ()Z
+	public final fun component12 ()Z
+	public final fun component13 ()Ljava/util/Set;
+	public final fun component14 ()Ljava/util/Set;
+	public final fun component15 ()Lcom/catchzoon/network/core/NetworkRetryBudget;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public final fun component5 ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun component6 ()Lcom/catchzoon/network/core/NetworkRequestBody;
+	public final fun component7 ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun component8 ()Ljava/util/Set;
+	public final fun component9 ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun copy (Ljava/util/Map;Ljava/lang/Integer;Ljava/lang/Long;Lcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRetryBudget;)Lcom/catchzoon/network/core/NetworkRequestOptions;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRequestOptions;Ljava/util/Map;Ljava/lang/Integer;Ljava/lang/Long;Lcom/catchzoon/network/core/NetworkRetryPolicy;Lcom/catchzoon/network/core/NetworkCachePolicy;Lcom/catchzoon/network/core/NetworkRequestBody;Lcom/catchzoon/network/core/NetworkPriority;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRedirectPolicy;Lcom/catchzoon/network/core/NetworkProgressListener;ZZLjava/util/Set;Ljava/util/Set;Lcom/catchzoon/network/core/NetworkRetryBudget;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRequestOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowAbsoluteUrl ()Z
+	public final fun getCachePolicy ()Lcom/catchzoon/network/core/NetworkCachePolicy;
+	public final fun getCacheTags ()Ljava/util/Set;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getInvalidateCacheTags ()Ljava/util/Set;
+	public final fun getMaxResponseBytes ()Ljava/lang/Long;
+	public final fun getPriority ()Lcom/catchzoon/network/core/NetworkPriority;
+	public final fun getProgressListener ()Lcom/catchzoon/network/core/NetworkProgressListener;
+	public final fun getRedirectPolicy ()Lcom/catchzoon/network/core/NetworkRedirectPolicy;
+	public final fun getRequestBody ()Lcom/catchzoon/network/core/NetworkRequestBody;
+	public final fun getRetryBudget ()Lcom/catchzoon/network/core/NetworkRetryBudget;
+	public final fun getRetryPolicy ()Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public final fun getStreamResponse ()Z
+	public final fun getTags ()Ljava/util/Set;
+	public final fun getTimeoutSeconds ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkResponseAdapter {
+	public abstract fun adapt (Lcom/catchzoon/network/core/NetworkRawResponse;)Lcom/catchzoon/network/core/NetworkPayload;
+}
+
+public final class com/catchzoon/network/core/NetworkResponseSource : java/lang/Enum {
+	public static final field LOCAL_FALLBACK Lcom/catchzoon/network/core/NetworkResponseSource;
+	public static final field MEMORY_CACHE Lcom/catchzoon/network/core/NetworkResponseSource;
+	public static final field NETWORK Lcom/catchzoon/network/core/NetworkResponseSource;
+	public static final field STALE_CACHE Lcom/catchzoon/network/core/NetworkResponseSource;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkResponseSource;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkResponseSource;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkResult {
+}
+
+public final class com/catchzoon/network/core/NetworkResult$Failure : com/catchzoon/network/core/NetworkResult {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkFailure;)Lcom/catchzoon/network/core/NetworkResult$Failure;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkResult$Failure;Lcom/catchzoon/network/core/NetworkFailure;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkResult$Success : com/catchzoon/network/core/NetworkResult {
+	public fun <init> (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;)V
+	public synthetic fun <init> (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/util/Map;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun component7 ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun copy (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;)Lcom/catchzoon/network/core/NetworkResult$Success;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkResult$Success;Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttempt ()I
+	public final fun getData ()Ljava/lang/Object;
+	public final fun getDurationMillis ()J
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getRequestId ()Ljava/lang/String;
+	public final fun getSource ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkRetryBudget {
+	public abstract fun tryAcquire (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/core/NetworkRetryPolicy {
+	public static final field Companion Lcom/catchzoon/network/core/NetworkRetryPolicy$Companion;
+	public fun <init> ()V
+	public fun <init> (IJJDDZ)V
+	public synthetic fun <init> (IJJDDZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()D
+	public final fun component5 ()D
+	public final fun component6 ()Z
+	public final fun copy (IJJDDZ)Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkRetryPolicy;IJJDDZILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkRetryPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInitialDelayMillis ()J
+	public final fun getJitterRatio ()D
+	public final fun getMaxAttempts ()I
+	public final fun getMaxDelayMillis ()J
+	public final fun getMultiplier ()D
+	public final fun getRetryUnsafeMethods ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkRetryPolicy$Companion {
+	public final fun none ()Lcom/catchzoon/network/core/NetworkRetryPolicy;
+}
+
+public abstract interface class com/catchzoon/network/core/NetworkState {
+}
+
+public final class com/catchzoon/network/core/NetworkState$Error : com/catchzoon/network/core/NetworkState {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkFailure;)Lcom/catchzoon/network/core/NetworkState$Error;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkState$Error;Lcom/catchzoon/network/core/NetworkFailure;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkState$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkState$Loading : com/catchzoon/network/core/NetworkState {
+	public static final field INSTANCE Lcom/catchzoon/network/core/NetworkState$Loading;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkState$Success : com/catchzoon/network/core/NetworkState {
+	public fun <init> (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;)V
+	public synthetic fun <init> (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/util/Map;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun component7 ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun copy (Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;)Lcom/catchzoon/network/core/NetworkState$Success;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkState$Success;Ljava/lang/Object;ILjava/util/Map;Ljava/lang/String;JILcom/catchzoon/network/core/NetworkResponseSource;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkState$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttempt ()I
+	public final fun getData ()Ljava/lang/Object;
+	public final fun getDurationMillis ()J
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getRequestId ()Ljava/lang/String;
+	public final fun getSource ()Lcom/catchzoon/network/core/NetworkResponseSource;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkTlsPolicy {
+	public fun <init> ()V
+	public fun <init> (ZLjava/util/Map;)V
+	public synthetic fun <init> (ZLjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/util/Map;
+	public final fun copy (ZLjava/util/Map;)Lcom/catchzoon/network/core/NetworkTlsPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkTlsPolicy;ZLjava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkTlsPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowCleartext ()Z
+	public final fun getCertificatePins ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkTlsPolicyKt {
+	public static final fun certificateSha256Pin (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkTransferDirection : java/lang/Enum {
+	public static final field DOWNLOAD Lcom/catchzoon/network/core/NetworkTransferDirection;
+	public static final field UPLOAD Lcom/catchzoon/network/core/NetworkTransferDirection;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkTransferDirection;
+	public static fun values ()[Lcom/catchzoon/network/core/NetworkTransferDirection;
+}
+
+public final class com/catchzoon/network/core/NetworkTransferProgress {
+	public fun <init> (JLjava/lang/Long;Lcom/catchzoon/network/core/NetworkTransferDirection;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lcom/catchzoon/network/core/NetworkTransferDirection;
+	public final fun copy (JLjava/lang/Long;Lcom/catchzoon/network/core/NetworkTransferDirection;)Lcom/catchzoon/network/core/NetworkTransferProgress;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/core/NetworkTransferProgress;JLjava/lang/Long;Lcom/catchzoon/network/core/NetworkTransferDirection;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkTransferProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytesTransferred ()J
+	public final fun getDirection ()Lcom/catchzoon/network/core/NetworkTransferDirection;
+	public final fun getTotalBytes ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/core/NetworkTransportException : java/lang/Exception {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+}
+
+public final class com/catchzoon/network/flow/NetworkFlowOperatorsKt {
+	public static final fun executeOn (Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun mapData (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun mapFailure (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun onData (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun onFailure (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun onLoading (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun recoverData (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/catchzoon/network/flow/NetworkOrchestrationKt {
+	public static final fun asStateFlow (Lcom/catchzoon/network/core/NetworkCall;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;)Lkotlinx/coroutines/flow/StateFlow;
+	public static synthetic fun asStateFlow$default (Lcom/catchzoon/network/core/NetworkCall;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/flow/SharingStarted;ILjava/lang/Object;)Lkotlinx/coroutines/flow/StateFlow;
+	public static final fun awaitAllNetwork (Ljava/lang/Iterable;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun awaitAllNetwork$default (Ljava/lang/Iterable;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun executeNetworkBatches (Ljava/lang/Iterable;IILkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun executeNetworkBatches$default (Ljava/lang/Iterable;IILkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun pollNetwork (Lcom/catchzoon/network/flow/NetworkPollingPolicy;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun pollNetwork$default (Lcom/catchzoon/network/flow/NetworkPollingPolicy;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/catchzoon/network/flow/NetworkPollingPolicy {
+	public fun <init> ()V
+	public fun <init> (JIZ)V
+	public synthetic fun <init> (JIZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun copy (JIZ)Lcom/catchzoon/network/flow/NetworkPollingPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/flow/NetworkPollingPolicy;JIZILjava/lang/Object;)Lcom/catchzoon/network/flow/NetworkPollingPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIntervalMillis ()J
+	public final fun getMaxPolls ()I
+	public final fun getStopOnFailure ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/interceptor/CommonHeadersInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/interceptor/MemoryNetworkCookieStore : com/catchzoon/network/interceptor/NetworkCookieStore {
+	public fun <init> ()V
+	public fun <init> (ILkotlin/jvm/functions/Function0;)V
+	public synthetic fun <init> (ILkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun clear (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun load (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun save (Lcom/catchzoon/network/core/NetworkRawRequest;Lcom/catchzoon/network/core/NetworkRawResponse;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/interceptor/NetworkClientBuilderExtensionsKt {
+	public static final fun bearerAuthentication (Lcom/catchzoon/network/core/NetworkClient$Builder;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun bearerAuthentication$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun circuitBreaker (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun circuitBreaker$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun coalesceRequests (Lcom/catchzoon/network/core/NetworkClient$Builder;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun coalesceRequests$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun commonHeaders (Lcom/catchzoon/network/core/NetworkClient$Builder;Lkotlin/jvm/functions/Function2;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun connectivity (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkConnectivityProvider;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun contentNegotiation (Lcom/catchzoon/network/core/NetworkClient$Builder;[Ljava/lang/String;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun cookies (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/interceptor/NetworkCookieStore;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun cookies$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/interceptor/NetworkCookieStore;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun limitConcurrency (Lcom/catchzoon/network/core/NetworkClient$Builder;IJ)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun limitConcurrency$default (Lcom/catchzoon/network/core/NetworkClient$Builder;IJILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun metrics (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/monitor/NetworkMetricsCollector;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun priorityQueue (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun priorityQueue$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun rateLimit (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun rateLimit$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static final fun responseCache (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/cache/NetworkCacheStore;Lcom/catchzoon/network/core/NetworkClock;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+	public static synthetic fun responseCache$default (Lcom/catchzoon/network/core/NetworkClient$Builder;Lcom/catchzoon/network/cache/NetworkCacheStore;Lcom/catchzoon/network/core/NetworkClock;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient$Builder;
+}
+
+public final class com/catchzoon/network/interceptor/NetworkContentNegotiationInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/interceptor/NetworkCookie {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Long;)Lcom/catchzoon/network/interceptor/NetworkCookie;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/interceptor/NetworkCookie;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Long;ILjava/lang/Object;)Lcom/catchzoon/network/interceptor/NetworkCookie;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiresAtMillis ()Ljava/lang/Long;
+	public final fun getHttpOnly ()Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getSecure ()Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/interceptor/NetworkCookieInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lcom/catchzoon/network/interceptor/NetworkCookieStore;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/interceptor/NetworkCookieStore {
+	public abstract fun clear (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun load (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun save (Lcom/catchzoon/network/core/NetworkRawRequest;Lcom/catchzoon/network/core/NetworkRawResponse;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/interceptor/RefreshingBearerAuthInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/interceptor/RequestCoalescingInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/monitor/NetworkMetricsCollector : com/catchzoon/network/core/NetworkEventListener {
+	public fun <init> ()V
+	public fun <init> (IJ)V
+	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun onEvent (Lcom/catchzoon/network/core/NetworkEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun reset (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/monitor/NetworkMetricsSnapshot {
+	public fun <init> ()V
+	public fun <init> (JIJJJJJJJLjava/util/Map;Lcom/catchzoon/network/monitor/NetworkQuality;)V
+	public synthetic fun <init> (JIJJJJJJJLjava/util/Map;Lcom/catchzoon/network/monitor/NetworkQuality;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()Ljava/util/Map;
+	public final fun component11 ()Lcom/catchzoon/network/monitor/NetworkQuality;
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()J
+	public final fun component8 ()J
+	public final fun component9 ()J
+	public final fun copy (JIJJJJJJJLjava/util/Map;Lcom/catchzoon/network/monitor/NetworkQuality;)Lcom/catchzoon/network/monitor/NetworkMetricsSnapshot;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/monitor/NetworkMetricsSnapshot;JIJJJJJJJLjava/util/Map;Lcom/catchzoon/network/monitor/NetworkQuality;ILjava/lang/Object;)Lcom/catchzoon/network/monitor/NetworkMetricsSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAverageDurationMillis ()J
+	public final fun getCacheHits ()J
+	public final fun getCancelledRequests ()J
+	public final fun getFailedRequests ()J
+	public final fun getFailuresByCategory ()Ljava/util/Map;
+	public final fun getInFlightRequests ()I
+	public final fun getP95DurationMillis ()J
+	public final fun getQuality ()Lcom/catchzoon/network/monitor/NetworkQuality;
+	public final fun getStaleCacheHits ()J
+	public final fun getSuccessfulRequests ()J
+	public final fun getTotalRequests ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/monitor/NetworkQuality : java/lang/Enum {
+	public static final field DEGRADED Lcom/catchzoon/network/monitor/NetworkQuality;
+	public static final field GOOD Lcom/catchzoon/network/monitor/NetworkQuality;
+	public static final field OFFLINE Lcom/catchzoon/network/monitor/NetworkQuality;
+	public static final field UNKNOWN Lcom/catchzoon/network/monitor/NetworkQuality;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/monitor/NetworkQuality;
+	public static fun values ()[Lcom/catchzoon/network/monitor/NetworkQuality;
+}
+
+public final class com/catchzoon/network/operator/NetworkResultOperatorsKt {
+	public static final fun flatMapData (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+	public static final fun fold (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun getOrElse (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun getOrNull (Lcom/catchzoon/network/core/NetworkResult;)Ljava/lang/Object;
+	public static final fun getOrThrow (Lcom/catchzoon/network/core/NetworkResult;)Ljava/lang/Object;
+	public static final fun mapData (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+	public static final fun mapFailure (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+	public static final fun onFailure (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+	public static final fun onSuccess (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+	public static final fun recover (Lcom/catchzoon/network/core/NetworkResult;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkResult;
+}
+
+public final class com/catchzoon/network/platform/NetworkEngineFactoryKt {
+	public static final fun createNetworkClient (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient;
+	public static synthetic fun createNetworkClient$default (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient;
+}
+
+public final class com/catchzoon/network/platform/RetrofitNetworkEngine : com/catchzoon/network/core/NetworkEngine {
+	public fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Lcom/catchzoon/network/core/NetworkTlsPolicy;)V
+	public synthetic fun <init> (Ljava/lang/String;Lokhttp3/OkHttpClient;Lcom/catchzoon/network/core/NetworkTlsPolicy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun execute (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/platform/RetrofitNetworkEngineKt {
+	public static final fun createPlatformNetworkEngine (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;)Lcom/catchzoon/network/core/NetworkEngine;
+	public static final fun createRetrofitNetworkClient (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient;
+	public static synthetic fun createRetrofitNetworkClient$default (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient;
+	public static final fun resolveNetworkUrl (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkCircuitBreakerInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public static final field Companion Lcom/catchzoon/network/resilience/NetworkCircuitBreakerInterceptor$Companion;
+	public fun <init> ()V
+	public fun <init> (Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/resilience/NetworkCircuitBreakerInterceptor$Companion {
+	public final fun defaultKey (Lcom/catchzoon/network/core/NetworkRawRequest;)Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkCircuitBreakerPolicy {
+	public fun <init> ()V
+	public fun <init> (IJI)V
+	public synthetic fun <init> (IJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()I
+	public final fun copy (IJI)Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;IJIILjava/lang/Object;)Lcom/catchzoon/network/resilience/NetworkCircuitBreakerPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailureThreshold ()I
+	public final fun getMaxTrackedCircuits ()I
+	public final fun getOpenDurationMillis ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkConcurrencyInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lcom/catchzoon/network/resilience/NetworkConcurrencyPolicy;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/resilience/NetworkConcurrencyPolicy {
+	public fun <init> ()V
+	public fun <init> (IJ)V
+	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun copy (IJ)Lcom/catchzoon/network/resilience/NetworkConcurrencyPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/resilience/NetworkConcurrencyPolicy;IJILjava/lang/Object;)Lcom/catchzoon/network/resilience/NetworkConcurrencyPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxConcurrentRequests ()I
+	public final fun getMaxQueueWaitMillis ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkConnectivity {
+	public fun <init> (ZZLcom/catchzoon/network/resilience/NetworkTransport;)V
+	public synthetic fun <init> (ZZLcom/catchzoon/network/resilience/NetworkTransport;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Lcom/catchzoon/network/resilience/NetworkTransport;
+	public final fun copy (ZZLcom/catchzoon/network/resilience/NetworkTransport;)Lcom/catchzoon/network/resilience/NetworkConnectivity;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/resilience/NetworkConnectivity;ZZLcom/catchzoon/network/resilience/NetworkTransport;ILjava/lang/Object;)Lcom/catchzoon/network/resilience/NetworkConnectivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAvailable ()Z
+	public final fun getMetered ()Z
+	public final fun getTransport ()Lcom/catchzoon/network/resilience/NetworkTransport;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkConnectivityInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> (Lcom/catchzoon/network/resilience/NetworkConnectivityProvider;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/resilience/NetworkConnectivityProvider {
+	public abstract fun current ()Lcom/catchzoon/network/resilience/NetworkConnectivity;
+}
+
+public final class com/catchzoon/network/resilience/NetworkPriorityInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> ()V
+	public fun <init> (Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/resilience/NetworkPriorityPolicy {
+	public fun <init> ()V
+	public fun <init> (IIJ)V
+	public synthetic fun <init> (IIJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun copy (IIJ)Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;IIJILjava/lang/Object;)Lcom/catchzoon/network/resilience/NetworkPriorityPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxConcurrentRequests ()I
+	public final fun getMaxQueueWaitMillis ()J
+	public final fun getMaxQueuedRequests ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkRateLimitInterceptor : com/catchzoon/network/core/NetworkInterceptor {
+	public fun <init> ()V
+	public fun <init> (Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;Lcom/catchzoon/network/core/NetworkClock;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public fun intercept (Lcom/catchzoon/network/core/NetworkInterceptor$Chain;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/resilience/NetworkRateLimitPolicy {
+	public fun <init> ()V
+	public fun <init> (IIJI)V
+	public synthetic fun <init> (IIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun copy (IIJI)Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;IIJIILjava/lang/Object;)Lcom/catchzoon/network/resilience/NetworkRateLimitPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCapacity ()I
+	public final fun getMaxTrackedBuckets ()I
+	public final fun getRefillIntervalMillis ()J
+	public final fun getRefillTokens ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/resilience/NetworkTransport : java/lang/Enum {
+	public static final field CELLULAR Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static final field ETHERNET Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static final field UNKNOWN Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static final field VPN Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static final field WIFI Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/catchzoon/network/resilience/NetworkTransport;
+	public static fun values ()[Lcom/catchzoon/network/resilience/NetworkTransport;
+}
+
+public abstract interface class com/catchzoon/network/resilience/ObservableNetworkConnectivityProvider : com/catchzoon/network/resilience/NetworkConnectivityProvider {
+	public abstract fun current ()Lcom/catchzoon/network/resilience/NetworkConnectivity;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class com/catchzoon/network/resilience/ObservableNetworkConnectivityProvider$DefaultImpls {
+	public static fun current (Lcom/catchzoon/network/resilience/ObservableNetworkConnectivityProvider;)Lcom/catchzoon/network/resilience/NetworkConnectivity;
+}
+
+public final class com/catchzoon/network/resilience/TokenBucketRetryBudget : com/catchzoon/network/core/NetworkRetryBudget {
+	public fun <init> ()V
+	public fun <init> (IIJLcom/catchzoon/network/core/NetworkClock;)V
+	public synthetic fun <init> (IIJLcom/catchzoon/network/core/NetworkClock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun tryAcquire (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

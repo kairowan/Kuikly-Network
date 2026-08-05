@@ -1,0 +1,131 @@
+site_name: Kuikly Network
+site_description: 面向 Kotlin Multiplatform、Kuikly、Android、iOS 与 HarmonyOS 的可组合网络库
+site_author: Catchzoon Mobile Team
+site_url: https://kairowan.github.io/Kuikly-Network/
+repo_url: https://github.com/kairowan/Kuikly-Network
+repo_name: kairowan/Kuikly-Network
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 Catchzoon Mobile Team
+
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/access-point-network
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tooltips
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kairowan/Kuikly-Network
+      name: GitHub
+  generator: false
+
+nav:
+  - 首页: index.md
+  - 开始使用:
+      - 模块与能力: getting-started/modules.md
+      - 安装与 KSP: getting-started/installation.md
+      - 快速开始: getting-started/quick-start.md
+      - 应用初始化与多 Base URL: getting-started/application-init.md
+      - 返回类型与错误: getting-started/results.md
+  - 注解接口:
+      - 注解总览: api/annotations.md
+      - HTTP 与 URL 参数: api/http-and-parameters.md
+      - Body、表单与文件: api/body-and-files.md
+      - 请求策略注解: api/policies.md
+  - 操作符:
+      - NetworkCall 操作符: operators/call.md
+      - Result 与 Flow 操作符: operators/result-flow.md
+      - 并行、批处理与轮询: operators/orchestration.md
+  - 核心能力:
+      - 拦截器与鉴权: features/interceptors.md
+      - 缓存与请求合并: features/cache.md
+      - 重试、限流与熔断: features/resilience.md
+      - 上传、下载与进度: features/transfer.md
+      - Inspector 与指标: features/observability.md
+      - SSE 与 WebSocket: features/realtime.md
+  - 自定义扩展:
+      - 全部扩展点: extensions/index.md
+      - 自定义 Interceptor: extensions/interceptor.md
+      - Engine 与协议适配: extensions/engine.md
+      - Converter 与响应外壳: extensions/converter.md
+      - 缓存、Cookie 与 Call Adapter: extensions/stores-and-adapters.md
+  - 平台接入:
+      - Android 与 iOS: platforms/android-ios.md
+      - Kuikly 生命周期: platforms/kuikly.md
+      - HarmonyOS / HAR: platforms/harmony.md
+  - 工程实践:
+      - 架构设计: network-library.md
+      - 测试: guides/testing.md
+      - Demo 运行: guides/demo.md
+      - 常见问题: guides/faq.md
+      - 迁移指南: network-migration.md
+      - 发布 Maven: network-release.md
+      - 发布 Harmony HAR: harmony-har-release.md

@@ -1,0 +1,13 @@
+diff --git a/core/build.2.0.ohos.gradle.kts b/core/build.2.0.ohos.gradle.kts
+index e1c3f4b..d1d3a6e 100644
+--- a/core/build.2.0.ohos.gradle.kts
++++ b/core/build.2.0.ohos.gradle.kts
+@@ -55,7 +55,7 @@ kotlin {
+             includeDirs(file("src/ohosArm64Main/ohosInterop/include"))
+ 
+             // Add HarmonyOS SDK include paths (Windows only)
+-            if (System.getProperty("os.name").lowercase().contains("windows")) {
++            if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                 val ohosSdkHome = System.getenv("OHOS_SDK_HOME")
+                 if (!ohosSdkHome.isNullOrEmpty()) {
+                     includeDirs(

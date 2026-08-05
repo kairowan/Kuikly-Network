@@ -1,0 +1,74 @@
+public final class com/catchzoon/network/realtime/NetworkRealtimeKt {
+	public static final fun parseServerSentEvents (Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public abstract interface class com/catchzoon/network/realtime/NetworkSocketConnection {
+	public abstract fun close (ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getIncoming ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun send (Lcom/catchzoon/network/realtime/NetworkSocketFrame;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/realtime/NetworkSocketConnection$DefaultImpls {
+	public static synthetic fun close$default (Lcom/catchzoon/network/realtime/NetworkSocketConnection;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/catchzoon/network/realtime/NetworkSocketFrame {
+}
+
+public final class com/catchzoon/network/realtime/NetworkSocketFrame$Binary : com/catchzoon/network/realtime/NetworkSocketFrame {
+	public fun <init> ([B)V
+	public final fun component1 ()[B
+	public final fun copy ([B)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Binary;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/realtime/NetworkSocketFrame$Binary;[BILjava/lang/Object;)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Binary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()[B
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/realtime/NetworkSocketFrame$Closing : com/catchzoon/network/realtime/NetworkSocketFrame {
+	public fun <init> (ILjava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Closing;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/realtime/NetworkSocketFrame$Closing;ILjava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Closing;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()I
+	public final fun getReason ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/realtime/NetworkSocketFrame$Text : com/catchzoon/network/realtime/NetworkSocketFrame {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Text;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/realtime/NetworkSocketFrame$Text;Ljava/lang/String;ILjava/lang/Object;)Lcom/catchzoon/network/realtime/NetworkSocketFrame$Text;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/realtime/NetworkSocketTransport {
+	public abstract fun connect (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/realtime/ServerSentEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Lcom/catchzoon/network/realtime/ServerSentEvent;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/realtime/ServerSentEvent;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lcom/catchzoon/network/realtime/ServerSentEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/String;
+	public final fun getEvent ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRetryMillis ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

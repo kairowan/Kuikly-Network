@@ -1,0 +1,91 @@
+public abstract class com/catchzoon/network/api/LegacyJsonNetworkApi {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkClient;)V
+	protected final fun delete (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun delete$default (Lcom/catchzoon/network/api/LegacyJsonNetworkApi;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	protected final fun get (Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun get$default (Lcom/catchzoon/network/api/LegacyJsonNetworkApi;Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	protected final fun getClient ()Lcom/catchzoon/network/core/NetworkClient;
+	protected final fun patch (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun patch$default (Lcom/catchzoon/network/api/LegacyJsonNetworkApi;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	protected final fun post (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun post$default (Lcom/catchzoon/network/api/LegacyJsonNetworkApi;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	protected final fun put (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun put$default (Lcom/catchzoon/network/api/LegacyJsonNetworkApi;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public final class com/catchzoon/network/codec/NetworkJson {
+	public static final field INSTANCE Lcom/catchzoon/network/codec/NetworkJson;
+	public final fun decodeObject (Ljava/lang/String;)Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;
+	public final fun decoder (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/api/NetworkDecoder;
+	public final fun encoder (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/api/NetworkEncoder;
+}
+
+public final class com/catchzoon/network/facade/JsonNetworkClient {
+	public static final field DEFAULT_TIMEOUT_SECONDS I
+	public static final field MAX_RETRY_COUNT I
+	public final fun delete (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun delete$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun get$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun get$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun getFlow (Ljava/lang/String;Ljava/util/Map;IIJLkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun getFlow$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Ljava/util/Map;IIJLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public final fun patch (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun patch$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun post (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun post (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun post$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun post$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun postFlow (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;IIJLkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun postFlow$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;IIJLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public final fun put (Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun put$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public final fun request (Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun request$default (Lcom/catchzoon/network/facade/JsonNetworkClient;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Lcom/catchzoon/network/core/NetworkRequestOptions;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+}
+
+public final class com/catchzoon/network/facade/JsonNetworkClientKt {
+	public static final fun json (Lcom/catchzoon/network/core/NetworkClient;)Lcom/catchzoon/network/facade/JsonNetworkClient;
+}
+
+public final class com/catchzoon/network/facade/NetworkClientExtensionsKt {
+	public static final fun get (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;)Lcom/catchzoon/network/core/NetworkCall;
+	public static final fun get (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun get$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun get$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static final fun getFlow (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun getFlow$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun post (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;)Lcom/catchzoon/network/core/NetworkCall;
+	public static final fun post (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun post$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static synthetic fun post$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkCall;
+	public static final fun postFlow (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;ILkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun postFlow$default (Lcom/catchzoon/network/core/NetworkClient;Ljava/lang/String;Lcom/tencent/kuikly/core/nvi/serialization/json/JSONObject;Ljava/util/Map;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/catchzoon/network/kuikly/KuiklyNetworkLifecycleKt {
+	public static final fun closeNetworkScope (Lcom/tencent/kuikly/core/pager/Pager;)V
+	public static final fun createKuiklyNetworkClient (Lcom/tencent/kuikly/core/pager/Pager;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient;
+	public static synthetic fun createKuiklyNetworkClient$default (Lcom/tencent/kuikly/core/pager/Pager;Ljava/lang/String;Lcom/catchzoon/network/core/NetworkTlsPolicy;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient;
+	public static final fun getNetworkScope (Lcom/tencent/kuikly/core/pager/Pager;)Lcom/catchzoon/network/kuikly/KuiklyNetworkScope;
+	public static final fun launchRequest (Lcom/tencent/kuikly/core/pager/Pager;Lcom/catchzoon/network/core/NetworkCall;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/tencent/kuikly/core/coroutines/Job;
+	public static synthetic fun launchRequest$default (Lcom/tencent/kuikly/core/pager/Pager;Lcom/catchzoon/network/core/NetworkCall;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/tencent/kuikly/core/coroutines/Job;
+}
+
+public final class com/catchzoon/network/kuikly/KuiklyNetworkModule : com/tencent/kuikly/core/module/Module {
+	public static final field DEFAULT_MAX_RESPONSE_BYTES J
+	public static final field METHOD_CANCEL_ALL Ljava/lang/String;
+	public static final field METHOD_HTTP_REQUEST Ljava/lang/String;
+	public fun <init> ()V
+	public final fun cancelAll ()V
+	public fun moduleName ()Ljava/lang/String;
+	public final fun request (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;IJLkotlin/jvm/functions/Function4;)V
+	public final fun request (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkMethod;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/functions/Function4;)V
+}
+
+public final class com/catchzoon/network/kuikly/KuiklyNetworkScope {
+	public final fun close ()V
+	public final fun launch (Lcom/catchzoon/network/core/NetworkCall;Lkotlin/jvm/functions/Function1;)Lcom/tencent/kuikly/core/coroutines/Job;
+}
+

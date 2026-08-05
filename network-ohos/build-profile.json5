@@ -1,0 +1,13 @@
+{
+  "apiType": "stageMode",
+  "buildOption": {
+    "nativeLib": {
+      "headerPath": "include"
+    }
+  },
+  "targets": [
+    {
+      "name": "default"
+    }
+  ]
+}

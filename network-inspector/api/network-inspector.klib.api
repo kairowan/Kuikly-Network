@@ -1,0 +1,83 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.catchzoon.network:network-inspector>
+final class com.catchzoon.network.inspector/NetworkExchange { // com.catchzoon.network.inspector/NetworkExchange|null[0]
+    constructor <init>(kotlin/Long, com.catchzoon.network.core/NetworkMethod, kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>, kotlin/Int, kotlin.collections/Set<kotlin/String>, kotlin/Long, kotlin/Long? = ..., kotlin/Int? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin/Int? = ..., com.catchzoon.network.core/NetworkFailure? = ...) // com.catchzoon.network.inspector/NetworkExchange.<init>|<init>(kotlin.Long;com.catchzoon.network.core.NetworkMethod;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.Int;kotlin.collections.Set<kotlin.String>;kotlin.Long;kotlin.Long?;kotlin.Int?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.Int?;com.catchzoon.network.core.NetworkFailure?){}[0]
+
+    final val durationMillis // com.catchzoon.network.inspector/NetworkExchange.durationMillis|{}durationMillis[0]
+        final fun <get-durationMillis>(): kotlin/Long? // com.catchzoon.network.inspector/NetworkExchange.durationMillis.<get-durationMillis>|<get-durationMillis>(){}[0]
+    final val failure // com.catchzoon.network.inspector/NetworkExchange.failure|{}failure[0]
+        final fun <get-failure>(): com.catchzoon.network.core/NetworkFailure? // com.catchzoon.network.inspector/NetworkExchange.failure.<get-failure>|<get-failure>(){}[0]
+    final val id // com.catchzoon.network.inspector/NetworkExchange.id|{}id[0]
+        final fun <get-id>(): kotlin/Long // com.catchzoon.network.inspector/NetworkExchange.id.<get-id>|<get-id>(){}[0]
+    final val method // com.catchzoon.network.inspector/NetworkExchange.method|{}method[0]
+        final fun <get-method>(): com.catchzoon.network.core/NetworkMethod // com.catchzoon.network.inspector/NetworkExchange.method.<get-method>|<get-method>(){}[0]
+    final val path // com.catchzoon.network.inspector/NetworkExchange.path|{}path[0]
+        final fun <get-path>(): kotlin/String // com.catchzoon.network.inspector/NetworkExchange.path.<get-path>|<get-path>(){}[0]
+    final val requestBytes // com.catchzoon.network.inspector/NetworkExchange.requestBytes|{}requestBytes[0]
+        final fun <get-requestBytes>(): kotlin/Int // com.catchzoon.network.inspector/NetworkExchange.requestBytes.<get-requestBytes>|<get-requestBytes>(){}[0]
+    final val requestHeaders // com.catchzoon.network.inspector/NetworkExchange.requestHeaders|{}requestHeaders[0]
+        final fun <get-requestHeaders>(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.requestHeaders.<get-requestHeaders>|<get-requestHeaders>(){}[0]
+    final val requestTags // com.catchzoon.network.inspector/NetworkExchange.requestTags|{}requestTags[0]
+        final fun <get-requestTags>(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.requestTags.<get-requestTags>|<get-requestTags>(){}[0]
+    final val responseBytes // com.catchzoon.network.inspector/NetworkExchange.responseBytes|{}responseBytes[0]
+        final fun <get-responseBytes>(): kotlin/Int? // com.catchzoon.network.inspector/NetworkExchange.responseBytes.<get-responseBytes>|<get-responseBytes>(){}[0]
+    final val responseHeaders // com.catchzoon.network.inspector/NetworkExchange.responseHeaders|{}responseHeaders[0]
+        final fun <get-responseHeaders>(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.responseHeaders.<get-responseHeaders>|<get-responseHeaders>(){}[0]
+    final val startedAtMillis // com.catchzoon.network.inspector/NetworkExchange.startedAtMillis|{}startedAtMillis[0]
+        final fun <get-startedAtMillis>(): kotlin/Long // com.catchzoon.network.inspector/NetworkExchange.startedAtMillis.<get-startedAtMillis>|<get-startedAtMillis>(){}[0]
+    final val statusCode // com.catchzoon.network.inspector/NetworkExchange.statusCode|{}statusCode[0]
+        final fun <get-statusCode>(): kotlin/Int? // com.catchzoon.network.inspector/NetworkExchange.statusCode.<get-statusCode>|<get-statusCode>(){}[0]
+
+    final fun component1(): kotlin/Long // com.catchzoon.network.inspector/NetworkExchange.component1|component1(){}[0]
+    final fun component10(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.component10|component10(){}[0]
+    final fun component11(): kotlin/Int? // com.catchzoon.network.inspector/NetworkExchange.component11|component11(){}[0]
+    final fun component12(): com.catchzoon.network.core/NetworkFailure? // com.catchzoon.network.inspector/NetworkExchange.component12|component12(){}[0]
+    final fun component2(): com.catchzoon.network.core/NetworkMethod // com.catchzoon.network.inspector/NetworkExchange.component2|component2(){}[0]
+    final fun component3(): kotlin/String // com.catchzoon.network.inspector/NetworkExchange.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.component4|component4(){}[0]
+    final fun component5(): kotlin/Int // com.catchzoon.network.inspector/NetworkExchange.component5|component5(){}[0]
+    final fun component6(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkExchange.component6|component6(){}[0]
+    final fun component7(): kotlin/Long // com.catchzoon.network.inspector/NetworkExchange.component7|component7(){}[0]
+    final fun component8(): kotlin/Long? // com.catchzoon.network.inspector/NetworkExchange.component8|component8(){}[0]
+    final fun component9(): kotlin/Int? // com.catchzoon.network.inspector/NetworkExchange.component9|component9(){}[0]
+    final fun copy(kotlin/Long = ..., com.catchzoon.network.core/NetworkMethod = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin/Int = ..., kotlin.collections/Set<kotlin/String> = ..., kotlin/Long = ..., kotlin/Long? = ..., kotlin/Int? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin/Int? = ..., com.catchzoon.network.core/NetworkFailure? = ...): com.catchzoon.network.inspector/NetworkExchange // com.catchzoon.network.inspector/NetworkExchange.copy|copy(kotlin.Long;com.catchzoon.network.core.NetworkMethod;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.Int;kotlin.collections.Set<kotlin.String>;kotlin.Long;kotlin.Long?;kotlin.Int?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.Int?;com.catchzoon.network.core.NetworkFailure?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.inspector/NetworkExchange.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.catchzoon.network.inspector/NetworkExchange.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.catchzoon.network.inspector/NetworkExchange.toString|toString(){}[0]
+}
+
+final class com.catchzoon.network.inspector/NetworkInspector { // com.catchzoon.network.inspector/NetworkInspector|null[0]
+    constructor <init>(kotlin/Int = ..., com.catchzoon.network.inspector/NetworkRedactionPolicy = ...) // com.catchzoon.network.inspector/NetworkInspector.<init>|<init>(kotlin.Int;com.catchzoon.network.inspector.NetworkRedactionPolicy){}[0]
+
+    final val exchanges // com.catchzoon.network.inspector/NetworkInspector.exchanges|{}exchanges[0]
+        final fun <get-exchanges>(): kotlinx.coroutines.flow/StateFlow<kotlin.collections/List<com.catchzoon.network.inspector/NetworkExchange>> // com.catchzoon.network.inspector/NetworkInspector.exchanges.<get-exchanges>|<get-exchanges>(){}[0]
+
+    final fun interceptor(): com.catchzoon.network.core/NetworkInterceptor // com.catchzoon.network.inspector/NetworkInspector.interceptor|interceptor(){}[0]
+    final suspend fun clear() // com.catchzoon.network.inspector/NetworkInspector.clear|clear(){}[0]
+}
+
+final class com.catchzoon.network.inspector/NetworkRedactionPolicy { // com.catchzoon.network.inspector/NetworkRedactionPolicy|null[0]
+    constructor <init>(kotlin.collections/Set<kotlin/String> = ..., kotlin.collections/Set<kotlin/String> = ...) // com.catchzoon.network.inspector/NetworkRedactionPolicy.<init>|<init>(kotlin.collections.Set<kotlin.String>;kotlin.collections.Set<kotlin.String>){}[0]
+
+    final val headerNames // com.catchzoon.network.inspector/NetworkRedactionPolicy.headerNames|{}headerNames[0]
+        final fun <get-headerNames>(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkRedactionPolicy.headerNames.<get-headerNames>|<get-headerNames>(){}[0]
+    final val queryNames // com.catchzoon.network.inspector/NetworkRedactionPolicy.queryNames|{}queryNames[0]
+        final fun <get-queryNames>(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkRedactionPolicy.queryNames.<get-queryNames>|<get-queryNames>(){}[0]
+
+    final fun component1(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkRedactionPolicy.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/Set<kotlin/String> // com.catchzoon.network.inspector/NetworkRedactionPolicy.component2|component2(){}[0]
+    final fun copy(kotlin.collections/Set<kotlin/String> = ..., kotlin.collections/Set<kotlin/String> = ...): com.catchzoon.network.inspector/NetworkRedactionPolicy // com.catchzoon.network.inspector/NetworkRedactionPolicy.copy|copy(kotlin.collections.Set<kotlin.String>;kotlin.collections.Set<kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.inspector/NetworkRedactionPolicy.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.catchzoon.network.inspector/NetworkRedactionPolicy.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.catchzoon.network.inspector/NetworkRedactionPolicy.toString|toString(){}[0]
+
+    final object Companion // com.catchzoon.network.inspector/NetworkRedactionPolicy.Companion|null[0]
+}
+
+final fun (com.catchzoon.network.core/NetworkClient.Builder).com.catchzoon.network.inspector/inspector(com.catchzoon.network.inspector/NetworkInspector): com.catchzoon.network.core/NetworkClient.Builder // com.catchzoon.network.inspector/inspector|inspector@com.catchzoon.network.core.NetworkClient.Builder(com.catchzoon.network.inspector.NetworkInspector){}[0]

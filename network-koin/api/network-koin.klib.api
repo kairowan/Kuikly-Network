@@ -1,0 +1,9 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.catchzoon.network:network-koin>
+final fun com.catchzoon.network.koin/networkKoinModule(kotlin/Function0<com.catchzoon.network.core/NetworkEngine>, kotlin/Function1<com.catchzoon.network.core/NetworkClient.Builder, kotlin/Unit> = ...): org.koin.core.module/Module // com.catchzoon.network.koin/networkKoinModule|networkKoinModule(kotlin.Function0<com.catchzoon.network.core.NetworkEngine>;kotlin.Function1<com.catchzoon.network.core.NetworkClient.Builder,kotlin.Unit>){}[0]

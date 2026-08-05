@@ -1,0 +1,5 @@
+{
+  "libknoi.so": {
+    "source": "src/mock/Libknoi.mock.ets"
+  }
+}

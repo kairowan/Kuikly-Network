@@ -1,0 +1,83 @@
+public final class com/catchzoon/network/testing/NetworkFixture {
+	public fun <init> (Ljava/lang/String;ILjava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;ILjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;ILjava/util/Map;)Lcom/catchzoon/network/testing/NetworkFixture;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/testing/NetworkFixture;Ljava/lang/String;ILjava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkFixture;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public final fun scenario ()Lcom/catchzoon/network/testing/NetworkScenario;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/catchzoon/network/testing/NetworkScenario {
+}
+
+public final class com/catchzoon/network/testing/NetworkScenario$Delay : com/catchzoon/network/testing/NetworkScenario {
+	public fun <init> (JLcom/catchzoon/network/testing/NetworkScenario;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lcom/catchzoon/network/testing/NetworkScenario;
+	public final fun copy (JLcom/catchzoon/network/testing/NetworkScenario;)Lcom/catchzoon/network/testing/NetworkScenario$Delay;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/testing/NetworkScenario$Delay;JLcom/catchzoon/network/testing/NetworkScenario;ILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkScenario$Delay;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDelayMillis ()J
+	public final fun getNext ()Lcom/catchzoon/network/testing/NetworkScenario;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/testing/NetworkScenario$Fail : com/catchzoon/network/testing/NetworkScenario {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkFailure;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkFailure;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkFailure;)Lcom/catchzoon/network/testing/NetworkScenario$Fail;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/testing/NetworkScenario$Fail;Lcom/catchzoon/network/core/NetworkFailure;ILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkScenario$Fail;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailure ()Lcom/catchzoon/network/core/NetworkFailure;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/testing/NetworkScenario$Handle : com/catchzoon/network/testing/NetworkScenario {
+	public fun <init> (Lkotlin/jvm/functions/Function2;)V
+	public final fun getBlock ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/catchzoon/network/testing/NetworkScenario$Respond : com/catchzoon/network/testing/NetworkScenario {
+	public fun <init> (Lcom/catchzoon/network/core/NetworkRawResponse;)V
+	public final fun component1 ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public final fun copy (Lcom/catchzoon/network/core/NetworkRawResponse;)Lcom/catchzoon/network/testing/NetworkScenario$Respond;
+	public static synthetic fun copy$default (Lcom/catchzoon/network/testing/NetworkScenario$Respond;Lcom/catchzoon/network/core/NetworkRawResponse;ILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkScenario$Respond;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getResponse ()Lcom/catchzoon/network/core/NetworkRawResponse;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/catchzoon/network/testing/ScriptedNetworkEngine : com/catchzoon/network/core/NetworkEngine {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancelAll ()V
+	public final fun client (Lkotlin/jvm/functions/Function1;)Lcom/catchzoon/network/core/NetworkClient;
+	public static synthetic fun client$default (Lcom/catchzoon/network/testing/ScriptedNetworkEngine;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/catchzoon/network/core/NetworkClient;
+	public final fun enqueue (Lcom/catchzoon/network/testing/NetworkScenario;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun execute (Lcom/catchzoon/network/core/NetworkRawRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun recordedRequests (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun remainingScenarios (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/catchzoon/network/testing/ScriptedNetworkEngineKt {
+	public static final fun delayed (JLcom/catchzoon/network/testing/NetworkScenario;)Lcom/catchzoon/network/testing/NetworkScenario;
+	public static final fun fail (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;Z)Lcom/catchzoon/network/testing/NetworkScenario;
+	public static synthetic fun fail$default (Ljava/lang/String;Lcom/catchzoon/network/core/NetworkFailureCategory;ZILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkScenario;
+	public static final fun offline ()Lcom/catchzoon/network/testing/NetworkScenario;
+	public static final fun respond (Ljava/lang/String;ILjava/util/Map;)Lcom/catchzoon/network/testing/NetworkScenario;
+	public static synthetic fun respond$default (Ljava/lang/String;ILjava/util/Map;ILjava/lang/Object;)Lcom/catchzoon/network/testing/NetworkScenario;
+	public static final fun timeout ()Lcom/catchzoon/network/testing/NetworkScenario;
+}
+

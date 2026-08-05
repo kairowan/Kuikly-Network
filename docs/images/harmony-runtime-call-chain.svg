@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="980" viewBox="0 0 1500 980" role="img" aria-labelledby="title desc">
+  <title id="title">HarmonyOS App 到 Kotlin/Native 网络实现的依赖与调用链</title>
+  <desc id="desc">展示 App、NAPI SO、HAR 内 libshared.so、Kotlin 内部函数、Kuikly Bridge、HAR 内 ArkTS 网络模块、HarmonyOS NetworkKit 和 HTTPS 服务端之间的调用和返回关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="appFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="harFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f3ff"/>
+      <stop offset="1" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="nativeFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset="1" stop-color="#cffafe"/>
+    </linearGradient>
+    <linearGradient id="platformFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0fdf4"/>
+      <stop offset="1" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="serverFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="1" stop-color="#ffedd5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#059669"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .box-title { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .box-code { font: 700 18px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #1e293b; }
+      .box-copy { font: 400 15px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .owner { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: .7px; }
+      .step { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+      .arrow-label { font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1d4ed8; text-anchor: middle; }
+      .return-label { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #047857; text-anchor: middle; }
+      .legend { font: 500 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .package-title { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5b21b6; }
+      .package-copy { font: 600 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #4c1d95; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="980" rx="28" fill="url(#bg)"/>
+  <text x="70" y="62" class="title">HarmonyOS App → HAR → Kotlin/Native 完整调用链</text>
+  <text x="70" y="94" class="subtitle">实线表示请求/调用方向；绿色虚线表示响应通过 callback 沿原链路返回</text>
+
+  <line x1="1080" y1="67" x2="1140" y2="67" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="1155" y="72" class="legend">调用 / 请求</text>
+  <line x1="1270" y1="67" x2="1330" y2="67" stroke="#059669" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrowGreen)"/>
+  <text x="1345" y="72" class="legend">响应 / 回调</text>
+
+  <!-- Top row -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="165" width="280" height="190" rx="20" fill="url(#appFill)" stroke="#60a5fa" stroke-width="2"/>
+  </g>
+  <circle cx="98" cy="194" r="18" fill="#2563eb"/><text x="98" y="194" class="step">1</text>
+  <text x="126" y="199" class="owner" fill="#1d4ed8">APP 层</text>
+  <text x="94" y="240" class="box-title">HarmonyOS App</text>
+  <text x="94" y="274" class="box-copy">AbilityStage / Kuikly 页面</text>
+  <text x="94" y="302" class="box-copy">MyNativeManager</text>
+  <text x="94" y="330" class="box-copy">调用业务 Contract 或初始化入口</text>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="165" width="280" height="190" rx="20" fill="url(#nativeFill)" stroke="#22d3ee" stroke-width="2"/>
+  </g>
+  <circle cx="453" cy="194" r="18" fill="#0891b2"/><text x="453" y="194" class="step">2</text>
+  <text x="481" y="199" class="owner" fill="#0e7490">APP 自有 NATIVE</text>
+  <text x="449" y="240" class="box-code">libkuikly_entry.so</text>
+  <text x="449" y="274" class="box-copy">NAPI / C++ Adapter</text>
+  <text x="449" y="302" class="box-copy">取得 Kotlin/Native 导出表</text>
+  <text x="449" y="330" class="box-code">libshared_symbols()</text>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="165" width="280" height="190" rx="20" fill="url(#harFill)" stroke="#a78bfa" stroke-width="2"/>
+  </g>
+  <circle cx="808" cy="194" r="18" fill="#7c3aed"/><text x="808" y="194" class="step">3</text>
+  <text x="836" y="199" class="owner" fill="#6d28d9">HAR 内的 NATIVE SO</text>
+  <text x="804" y="240" class="box-code">libshared.so</text>
+  <text x="804" y="274" class="box-copy">Kotlin/Native Runtime</text>
+  <text x="804" y="302" class="box-copy">加载共享网络逻辑</text>
+  <text x="804" y="330" class="box-copy">ARM64 · release · stripped</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1135" y="165" width="295" height="190" rx="20" fill="url(#harFill)" stroke="#8b5cf6" stroke-width="2"/>
+  </g>
+  <circle cx="1163" cy="194" r="18" fill="#6d28d9"/><text x="1163" y="194" class="step">4</text>
+  <text x="1191" y="199" class="owner" fill="#5b21b6">SO 内部 KOTLIN</text>
+  <text x="1159" y="240" class="box-code">initKuikly()</text>
+  <text x="1159" y="272" class="box-code">Generated Service</text>
+  <text x="1159" y="302" class="box-copy">NetworkClient / Interceptor</text>
+  <text x="1159" y="330" class="box-copy">缓存 · 重试 · 序列化 · 错误</text>
+
+  <!-- Top arrows -->
+  <line x1="350" y1="260" x2="415" y2="260" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M415 260 L397 250 L397 270 Z" fill="#2563eb"/>
+  <text x="383" y="243" class="arrow-label">NAPI 调用</text>
+  <line x1="705" y1="260" x2="770" y2="260" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M770 260 L752 250 L752 270 Z" fill="#2563eb"/>
+  <text x="738" y="243" class="arrow-label">动态链接</text>
+  <line x1="1060" y1="260" x2="1125" y2="260" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M1125 260 L1107 250 L1107 270 Z" fill="#2563eb"/>
+  <text x="1093" y="243" class="arrow-label">C ABI</text>
+
+  <!-- Bottom row, request continues right to left -->
+  <g filter="url(#shadow)">
+    <rect x="1135" y="510" width="295" height="180" rx="20" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <circle cx="1163" cy="539" r="18" fill="#475569"/><text x="1163" y="539" class="step">5</text>
+  <text x="1191" y="544" class="owner" fill="#475569">KUIKLY RUNTIME</text>
+  <text x="1159" y="586" class="box-title">Kuikly Bridge</text>
+  <text x="1159" y="618" class="box-code">KRNetworkModule</text>
+  <text x="1159" y="650" class="box-copy">httpRequest(JSON) / callback</text>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="510" width="280" height="180" rx="20" fill="url(#harFill)" stroke="#a78bfa" stroke-width="2"/>
+  </g>
+  <circle cx="808" cy="539" r="18" fill="#7c3aed"/><text x="808" y="539" class="step">6</text>
+  <text x="836" y="544" class="owner" fill="#6d28d9">HAR 内的 ARKTS</text>
+  <text x="804" y="586" class="box-title">CatchzoonNetworkModule</text>
+  <text x="804" y="618" class="box-copy">校验 URL / Header / 大小</text>
+  <text x="804" y="650" class="box-copy">JSON.parse + 异步请求</text>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="510" width="280" height="180" rx="20" fill="url(#platformFill)" stroke="#4ade80" stroke-width="2"/>
+  </g>
+  <circle cx="453" cy="539" r="18" fill="#16a34a"/><text x="453" y="539" class="step">7</text>
+  <text x="481" y="544" class="owner" fill="#15803d">HARMONYOS 系统</text>
+  <text x="449" y="586" class="box-title">RCP / NetworkKit</text>
+  <text x="449" y="618" class="box-copy">DNS · 连接 · TLS · HTTP</text>
+  <text x="449" y="650" class="box-copy">Response / ArrayBuffer</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="510" width="280" height="180" rx="20" fill="url(#serverFill)" stroke="#fb923c" stroke-width="2"/>
+  </g>
+  <circle cx="98" cy="539" r="18" fill="#ea580c"/><text x="98" y="539" class="step">8</text>
+  <text x="126" y="544" class="owner" fill="#c2410c">外部服务</text>
+  <text x="94" y="586" class="box-title">HTTPS Server</text>
+  <text x="94" y="618" class="box-copy">业务接口 / 数据响应</text>
+  <text x="94" y="650" class="box-copy">主要端到端耗时来源</text>
+
+  <!-- Turn and bottom arrows -->
+  <path d="M1283 355 L1283 495" fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M1283 495 L1273 477 L1293 477 Z" fill="#2563eb"/>
+  <rect x="1192" y="402" width="182" height="42" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="1283" y="428" class="arrow-label">请求 JSON 进入 Bridge</text>
+
+  <line x1="1135" y1="600" x2="1070" y2="600" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M1070 600 L1088 590 L1088 610 Z" fill="#2563eb"/>
+  <text x="1103" y="583" class="arrow-label">模块路由</text>
+  <line x1="780" y1="600" x2="715" y2="600" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M715 600 L733 590 L733 610 Z" fill="#2563eb"/>
+  <text x="748" y="583" class="arrow-label">fetch()</text>
+  <line x1="425" y1="600" x2="360" y2="600" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M360 600 L378 590 L378 610 Z" fill="#2563eb"/>
+  <text x="393" y="583" class="arrow-label">HTTPS</text>
+
+  <!-- Return path -->
+  <path d="M210 690 L210 735 Q210 760 235 760 L1260 760 Q1283 760 1283 735 L1283 700" fill="none" stroke="#059669" stroke-width="4" stroke-dasharray="11 9" marker-end="url(#arrowGreen)"/>
+  <path d="M1283 700 L1273 718 L1293 718 Z" fill="#059669"/>
+  <text x="746" y="790" class="return-label">响应经 callback 反向返回：NetworkKit → ArkTS 模块 → Kuikly Bridge → Kotlin 反序列化 → App</text>
+
+  <!-- Package ownership -->
+  <rect x="70" y="835" width="1360" height="95" rx="18" fill="#faf5ff" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="9 7"/>
+  <text x="95" y="869" class="package-title">network_ohos.har 是分发容器，不是运行时进程边界</text>
+  <rect x="95" y="885" width="330" height="28" rx="8" fill="#ede9fe"/><text x="110" y="904" class="package-copy">CatchzoonNetworkModule.ets</text>
+  <rect x="445" y="885" width="290" height="28" rx="8" fill="#ede9fe"/><text x="460" y="904" class="package-copy">libs/arm64-v8a/libshared.so</text>
+  <rect x="755" y="885" width="270" height="28" rx="8" fill="#ede9fe"/><text x="770" y="904" class="package-copy">include/libshared_api.h</text>
+  <text x="1050" y="904" class="box-copy">安装时合并进最终 HAP，不产生额外 IPC</text>
+</svg>

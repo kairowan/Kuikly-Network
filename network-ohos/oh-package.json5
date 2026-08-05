@@ -1,0 +1,11 @@
+{
+  "name": "@catchzoon/network-ohos",
+  "version": "0.1.0",
+  "description": "Catchzoon Network 的 Kuikly HarmonyOS NetworkKit 适配器",
+  "main": "Index.ets",
+  "author": "Catchzoon Mobile Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@kuikly-open/render": "2.23.3"
+  }
+}

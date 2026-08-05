@@ -1,0 +1,15 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Kuikly Network HarmonyOS 示例宿主",
+  "main": "",
+  "author": "Catchzoon",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@kuikly-open/render": "2.23.3",
+    "@catchzoon/network-ohos": "file:../../network-ohos/build/default/outputs/default/network_ohos.har",
+    "libkuikly_entry.so": "file:./src/main/cpp/types/kuikly_entry",
+    "@tencent/libpag": "4.4.25",
+    "@kuiklybase/knoi": "0.0.4"
+  }
+}

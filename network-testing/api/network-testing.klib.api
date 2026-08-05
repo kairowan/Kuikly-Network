@@ -1,0 +1,95 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.catchzoon.network:network-testing>
+sealed interface com.catchzoon.network.testing/NetworkScenario { // com.catchzoon.network.testing/NetworkScenario|null[0]
+    final class Delay : com.catchzoon.network.testing/NetworkScenario { // com.catchzoon.network.testing/NetworkScenario.Delay|null[0]
+        constructor <init>(kotlin/Long, com.catchzoon.network.testing/NetworkScenario) // com.catchzoon.network.testing/NetworkScenario.Delay.<init>|<init>(kotlin.Long;com.catchzoon.network.testing.NetworkScenario){}[0]
+
+        final val delayMillis // com.catchzoon.network.testing/NetworkScenario.Delay.delayMillis|{}delayMillis[0]
+            final fun <get-delayMillis>(): kotlin/Long // com.catchzoon.network.testing/NetworkScenario.Delay.delayMillis.<get-delayMillis>|<get-delayMillis>(){}[0]
+        final val next // com.catchzoon.network.testing/NetworkScenario.Delay.next|{}next[0]
+            final fun <get-next>(): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/NetworkScenario.Delay.next.<get-next>|<get-next>(){}[0]
+
+        final fun component1(): kotlin/Long // com.catchzoon.network.testing/NetworkScenario.Delay.component1|component1(){}[0]
+        final fun component2(): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/NetworkScenario.Delay.component2|component2(){}[0]
+        final fun copy(kotlin/Long = ..., com.catchzoon.network.testing/NetworkScenario = ...): com.catchzoon.network.testing/NetworkScenario.Delay // com.catchzoon.network.testing/NetworkScenario.Delay.copy|copy(kotlin.Long;com.catchzoon.network.testing.NetworkScenario){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.testing/NetworkScenario.Delay.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.testing/NetworkScenario.Delay.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.testing/NetworkScenario.Delay.toString|toString(){}[0]
+    }
+
+    final class Fail : com.catchzoon.network.testing/NetworkScenario { // com.catchzoon.network.testing/NetworkScenario.Fail|null[0]
+        constructor <init>(com.catchzoon.network.core/NetworkFailure) // com.catchzoon.network.testing/NetworkScenario.Fail.<init>|<init>(com.catchzoon.network.core.NetworkFailure){}[0]
+
+        final val failure // com.catchzoon.network.testing/NetworkScenario.Fail.failure|{}failure[0]
+            final fun <get-failure>(): com.catchzoon.network.core/NetworkFailure // com.catchzoon.network.testing/NetworkScenario.Fail.failure.<get-failure>|<get-failure>(){}[0]
+
+        final fun component1(): com.catchzoon.network.core/NetworkFailure // com.catchzoon.network.testing/NetworkScenario.Fail.component1|component1(){}[0]
+        final fun copy(com.catchzoon.network.core/NetworkFailure = ...): com.catchzoon.network.testing/NetworkScenario.Fail // com.catchzoon.network.testing/NetworkScenario.Fail.copy|copy(com.catchzoon.network.core.NetworkFailure){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.testing/NetworkScenario.Fail.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.testing/NetworkScenario.Fail.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.testing/NetworkScenario.Fail.toString|toString(){}[0]
+    }
+
+    final class Handle : com.catchzoon.network.testing/NetworkScenario { // com.catchzoon.network.testing/NetworkScenario.Handle|null[0]
+        constructor <init>(kotlin.coroutines/SuspendFunction1<com.catchzoon.network.core/NetworkRawRequest, com.catchzoon.network.core/NetworkRawResponse>) // com.catchzoon.network.testing/NetworkScenario.Handle.<init>|<init>(kotlin.coroutines.SuspendFunction1<com.catchzoon.network.core.NetworkRawRequest,com.catchzoon.network.core.NetworkRawResponse>){}[0]
+
+        final val block // com.catchzoon.network.testing/NetworkScenario.Handle.block|{}block[0]
+            final fun <get-block>(): kotlin.coroutines/SuspendFunction1<com.catchzoon.network.core/NetworkRawRequest, com.catchzoon.network.core/NetworkRawResponse> // com.catchzoon.network.testing/NetworkScenario.Handle.block.<get-block>|<get-block>(){}[0]
+    }
+
+    final class Respond : com.catchzoon.network.testing/NetworkScenario { // com.catchzoon.network.testing/NetworkScenario.Respond|null[0]
+        constructor <init>(com.catchzoon.network.core/NetworkRawResponse) // com.catchzoon.network.testing/NetworkScenario.Respond.<init>|<init>(com.catchzoon.network.core.NetworkRawResponse){}[0]
+
+        final val response // com.catchzoon.network.testing/NetworkScenario.Respond.response|{}response[0]
+            final fun <get-response>(): com.catchzoon.network.core/NetworkRawResponse // com.catchzoon.network.testing/NetworkScenario.Respond.response.<get-response>|<get-response>(){}[0]
+
+        final fun component1(): com.catchzoon.network.core/NetworkRawResponse // com.catchzoon.network.testing/NetworkScenario.Respond.component1|component1(){}[0]
+        final fun copy(com.catchzoon.network.core/NetworkRawResponse = ...): com.catchzoon.network.testing/NetworkScenario.Respond // com.catchzoon.network.testing/NetworkScenario.Respond.copy|copy(com.catchzoon.network.core.NetworkRawResponse){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.testing/NetworkScenario.Respond.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.catchzoon.network.testing/NetworkScenario.Respond.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.catchzoon.network.testing/NetworkScenario.Respond.toString|toString(){}[0]
+    }
+}
+
+final class com.catchzoon.network.testing/NetworkFixture { // com.catchzoon.network.testing/NetworkFixture|null[0]
+    constructor <init>(kotlin/String, kotlin/Int = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // com.catchzoon.network.testing/NetworkFixture.<init>|<init>(kotlin.String;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final val body // com.catchzoon.network.testing/NetworkFixture.body|{}body[0]
+        final fun <get-body>(): kotlin/String // com.catchzoon.network.testing/NetworkFixture.body.<get-body>|<get-body>(){}[0]
+    final val headers // com.catchzoon.network.testing/NetworkFixture.headers|{}headers[0]
+        final fun <get-headers>(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.testing/NetworkFixture.headers.<get-headers>|<get-headers>(){}[0]
+    final val statusCode // com.catchzoon.network.testing/NetworkFixture.statusCode|{}statusCode[0]
+        final fun <get-statusCode>(): kotlin/Int // com.catchzoon.network.testing/NetworkFixture.statusCode.<get-statusCode>|<get-statusCode>(){}[0]
+
+    final fun component1(): kotlin/String // com.catchzoon.network.testing/NetworkFixture.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // com.catchzoon.network.testing/NetworkFixture.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.catchzoon.network.testing/NetworkFixture.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): com.catchzoon.network.testing/NetworkFixture // com.catchzoon.network.testing/NetworkFixture.copy|copy(kotlin.String;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.catchzoon.network.testing/NetworkFixture.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.catchzoon.network.testing/NetworkFixture.hashCode|hashCode(){}[0]
+    final fun scenario(): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/NetworkFixture.scenario|scenario(){}[0]
+    final fun toString(): kotlin/String // com.catchzoon.network.testing/NetworkFixture.toString|toString(){}[0]
+}
+
+final class com.catchzoon.network.testing/ScriptedNetworkEngine : com.catchzoon.network.core/NetworkEngine { // com.catchzoon.network.testing/ScriptedNetworkEngine|null[0]
+    constructor <init>(kotlin.collections/List<com.catchzoon.network.testing/NetworkScenario> = ...) // com.catchzoon.network.testing/ScriptedNetworkEngine.<init>|<init>(kotlin.collections.List<com.catchzoon.network.testing.NetworkScenario>){}[0]
+
+    final fun cancelAll() // com.catchzoon.network.testing/ScriptedNetworkEngine.cancelAll|cancelAll(){}[0]
+    final fun client(kotlin/Function1<com.catchzoon.network.core/NetworkClient.Builder, kotlin/Unit> = ...): com.catchzoon.network.core/NetworkClient // com.catchzoon.network.testing/ScriptedNetworkEngine.client|client(kotlin.Function1<com.catchzoon.network.core.NetworkClient.Builder,kotlin.Unit>){}[0]
+    final suspend fun enqueue(com.catchzoon.network.testing/NetworkScenario) // com.catchzoon.network.testing/ScriptedNetworkEngine.enqueue|enqueue(com.catchzoon.network.testing.NetworkScenario){}[0]
+    final suspend fun execute(com.catchzoon.network.core/NetworkRawRequest): com.catchzoon.network.core/NetworkRawResponse // com.catchzoon.network.testing/ScriptedNetworkEngine.execute|execute(com.catchzoon.network.core.NetworkRawRequest){}[0]
+    final suspend fun recordedRequests(): kotlin.collections/List<com.catchzoon.network.core/NetworkRawRequest> // com.catchzoon.network.testing/ScriptedNetworkEngine.recordedRequests|recordedRequests(){}[0]
+    final suspend fun remainingScenarios(): kotlin/Int // com.catchzoon.network.testing/ScriptedNetworkEngine.remainingScenarios|remainingScenarios(){}[0]
+}
+
+final fun com.catchzoon.network.testing/delayed(kotlin/Long, com.catchzoon.network.testing/NetworkScenario): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/delayed|delayed(kotlin.Long;com.catchzoon.network.testing.NetworkScenario){}[0]
+final fun com.catchzoon.network.testing/fail(kotlin/String, com.catchzoon.network.core/NetworkFailureCategory = ..., kotlin/Boolean = ...): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/fail|fail(kotlin.String;com.catchzoon.network.core.NetworkFailureCategory;kotlin.Boolean){}[0]
+final fun com.catchzoon.network.testing/offline(): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/offline|offline(){}[0]
+final fun com.catchzoon.network.testing/respond(kotlin/String, kotlin/Int = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/respond|respond(kotlin.String;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+final fun com.catchzoon.network.testing/timeout(): com.catchzoon.network.testing/NetworkScenario // com.catchzoon.network.testing/timeout|timeout(){}[0]
